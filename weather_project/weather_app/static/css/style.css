@@ -1,5 +1,22 @@
 a {
     text-decoration: none;
-    font-family: 'Merriweather Sans', sans-serif;
 }
 
+@media only screen and (max-width : 600px) {
+    .nav :nth-child(2) {
+        display: none;
+        
+    }
+}
+
+@media only screen and (max-width : 600px) {
+    .nav {
+       font-size: 0.75em;
+    }
+    .nav img {
+        width: 3.75rem !important;
+    }
+    .responsive {
+        display: none;
+    }
+}
