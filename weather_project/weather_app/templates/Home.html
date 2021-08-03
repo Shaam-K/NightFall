@@ -11,15 +11,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400&family=Open+Sans&family=Open+Sans+Condensed:wght@300&family=Rubik:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bars.css' %}">
 </head>
 <body>
     <div class="w3-bar w3-block">
         <div class="nav">
-        <a href="#" class="w3-bar-item w3-left" style="font-size: 2.5em; font-family: 'Rubik', sans-serif;">{% load static %} <img src="{% static 'icons/logo.svg' %}" style="width: 5rem; "/>Nightfall</a>
+        <a href="#" class="w3-bar-item w3-left" style="font-size: 2.5em; font-family: 'Rubik', sans-serif;">{% load static %} <img src="{% static 'icons/logo.svg' %}" style="width: 5rem;"/>Nightfall</a>
         <a href="#" class="w3-bar-item w3-right" style="font-size: 2em; font-family: 'Rubik', sans-serif; margin-right: 3rem; margin-top: 0.2rem;">Login {% load static %} <img src="{% static 'icons/login.svg' %}" class = "bars" style="width: 3.5rem; margin-left: 0.75rem; margin-bottom: 0.5rem; padding-bottom: 1.25rem;"/></a>
-        <button class="w3-button w3-hover-light-blue = w3-round-medium" style="float: right;" id="bars"><img src="{% static 'icons/bars.svg' %}" /></button>
+        <input type="checkbox" id="active">
+      <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
+      <div class="wrapper">
+         <ul>
+            <li><a href="#">Weather</a></li>
+            <li><a href="#">Air Quality</a></li>
+            <li><a href="#">Air Quality</a></li>
+            <li><a href="#">Maps</a></li>
+         </ul>
+      </div>
         </div>
     </div>
     <div class="w3-center">
