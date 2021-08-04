@@ -21,24 +21,25 @@
     <div class="w3-bar w3-block">
         <div class="nav">
         <a href="#" class="w3-bar-item w3-left" style="font-size: 2.5em; font-family: 'Rubik', sans-serif;">{% load static %} <img src="{% static 'icons/logo.svg' %}" style="width: 5rem;"/>Nightfall</a>
-        <a href="#" class="w3-bar-item w3-right" style="font-size: 2em; font-family: 'Rubik', sans-serif; margin-right: 3rem; margin-top: 0.2rem;">Login {% load static %} <img src="{% static 'icons/login.svg' %}" class = "bars" style="width: 3.5rem; margin-left: 0.75rem; margin-bottom: 0.5rem; padding-bottom: 1.25rem;"/></a>
+        <a href="#" class="w3-bar-item w3-right" style="font-size: 2em; font-family: 'Rubik', sans-serif; margin-right: 1.5rem;">Login {% load static %} <img src="{% static 'icons/account.svg' %}" class = "bars" style="width: 4rem; padding-bottom: 0.5rem"/></a>
         <input type="checkbox" id="active">
       <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
-      <div class="wrapper">
+      <div class="wrapper" style="font-family: 'Metrophobic', sans-serif; ;">
          <ul>
+            <li><a href="#">Login</a></li>
             <li><a href="#">Weather</a></li>
-            <li><a href="#">Air Quality</a></li>
+            <li><a href="#">Weather</a></li>
             <li><a href="#">Air Quality</a></li>
             <li><a href="#">Maps</a></li>
          </ul>
       </div>
         </div>
     </div>
-    <div class="w3-center">
+    <div class="w3-center" style="margin-top: 1.25rem;">
         <div class="responsive">
-            <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-right: 8rem;">Weather</a>
-            <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">Air Quality</a>
-            <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-left: 8rem;">Maps</a>  
+            <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-right: 8rem;">{% load static %} <img src="{% static 'icons/weather.svg' %}" style="width:3rem; margin-bottom: 1rem; margin-right: 1rem;">Weather</a>
+            <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/air.svg' %}" style="width:3rem; margin-bottom: 1rem; margin-right: 1rem;"> Air Quality</a>
+            <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-left: 8rem;">{% load static %} <img src="{% static 'icons/maps.svg' %}" style="width:3rem; margin-bottom: 1rem; margin-right: 1rem;"> Maps</a>  
         </div>
     </div>
       {% load static %}  
