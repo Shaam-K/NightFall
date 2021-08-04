@@ -37,7 +37,7 @@
 }
 #active:checked ~ .menu-btn{
   background: #fff;
-  color: #4158d0;
+  color: #6679da;
 }
 #active:checked ~ .menu-btn i:before{
   content: "\f00d";
