@@ -15,7 +15,9 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bars.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bars.css' %}"> 
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
 </head>
 <body>
     <div class="w3-bar w3-block">
@@ -24,7 +26,7 @@
         <a href="#" class="w3-bar-item w3-right" style="font-size: 2em; font-family: 'Rubik', sans-serif;">Login {% load static %} <img src="{% static 'icons/account.svg' %}" class = "bars" style="width: 4rem; padding-bottom: 0.5rem"/></a>
         <input type="checkbox" id="active">
       <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
-      <div class="wrapper" style="font-family: 'Metrophobic', sans-serif; ;">
+      <div class="wrapper" style="font-family: 'Metrophobic', sans-serif;">
          <ul>
             <li><a href="#">Login</a></li>
             <li><a href="#">Weather</a></li>
@@ -35,11 +37,17 @@
       </div>
         </div>
     </div>
-    <div class="w3-center w3-mobile" style="margin-top: 1.25rem;">
+    <div class="w3-center" style="margin-top: 5rem;">
+    <form method="GET" id="location_form">
+        <input type="text" id="location" name="location" value="Enter Location" onfocus="if (this.value=='Enter Location') this.value='' ; else this.value='Enter Location';">
+        <input type="image" src="{% static 'icons/location.svg' %}" style="width: 4rem;" />
+    </form>
+    </div>
+    <div class="w3-center" style="margin-top: 10rem;">
         <div class="responsive">
-            <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-right: 3rem">{% load static %} <img src="{% static 'icons/weather.svg' %}" style="width:3rem; margin-bottom: 1rem;">Weather</a>
-            <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/air.svg' %}" style="width:3rem; margin-bottom: 1rem;"> Air Quality</a>
-            <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-left: 3rem;">{% load static %} <img src="{% static 'icons/maps.svg' %}" style="width:3rem; margin-bottom: 1rem;"> Maps</a>  
+            <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-right: 4rem">{% load static %} <img src="{% static 'icons/weather.svg' %}" style="width:3rem; margin-bottom: 0.5rem; padding-right: 0.3rem;">Weather</a>
+            <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/air.svg' %}" style="width:3rem; margin-bottom: 0.5rem;"> Air Quality</a>
+            <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-left: 3rem;">{% load static %} <img src="{% static 'icons/maps.svg' %}" style="width:3rem; margin-bottom: 0.5rem;"> Maps</a>  
         </div>
     </div>
       {% load static %}  
