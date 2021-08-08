@@ -5,6 +5,10 @@
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
-form :nth-child(2) {
-    padding-bottom: 1.25rem;
+#submit {
+    width: 5.5rem;
+    height: 3.575rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: 'Rubik', sans-serif;
 }
