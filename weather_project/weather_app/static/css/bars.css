@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
   position: fixed;
   top: -1.25%;
   left: 0;
@@ -14,10 +14,10 @@
   clip-path: circle(25px at calc(100% - 45px) 45px);
   transition: all 0.3s ease-in-out;
 }
-#active:checked ~ .wrapper{
+#active:checked ~ .wrapper {
   clip-path: circle(75%);
 }
-.menu-btn{
+.menu-btn {
   position: absolute;
   z-index: 2;
   right: 20px;
@@ -35,14 +35,14 @@
   /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
   transition: all 0.3s ease-in-out;
 }
-#active:checked ~ .menu-btn{
+#active:checked ~ .menu-btn {
   background: #fff;
   color: #6679da;
 }
-#active:checked ~ .menu-btn i:before{
+#active:checked ~ .menu-btn i:before {
   content: "\f00d";
 }
-.wrapper ul{
+.wrapper ul {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -50,10 +50,10 @@
   list-style: none;
   text-align: center;
 }
-.wrapper ul li{
+.wrapper ul li { 
   margin: 15px 0;
 }
-.wrapper ul li a{
+.wrapper ul li a {
   color: none;
   text-decoration: none;
   font-size: 30px;
@@ -64,7 +64,7 @@
   line-height: 50px;
   transition: all 0.3s ease;
 }
-.wrapper ul li a:after{
+.wrapper ul li a:after {
   position: absolute;
   content: "";
   background: #fff;
@@ -76,16 +76,16 @@
   z-index: -1;
   transition: transform 0.3s ease;
 }
-.wrapper ul li a:hover:after{
+.wrapper ul li a:hover:after {
   transform: scaleY(1);
 }
-.wrapper ul li a:hover{
+.wrapper ul li a:hover {
   color: #4158d0;
 }
-input[type="checkbox"]{
+input[type="checkbox"] {
   display: none;
 }
-.content{
+.content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -95,11 +95,11 @@ input[type="checkbox"]{
   width: 100%;
   color: #202020;
 }
-.content .title{
+.content .title {
   font-size: 40px;
   font-weight: 700;
 }
-.content p{
+.content p {
   font-size: 35px;
   font-weight: 600;
 }
