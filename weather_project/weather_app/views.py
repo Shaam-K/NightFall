@@ -4,8 +4,8 @@ import urllib.request
 import json
 # Create your views here.
 def homepage(request):
-    if request.method == 'GET':
-        city = request.GET['location']
+    if request.method == 'POST':
+        city = request.POST['enter']
   # source contain JSON data from API
   
         source_weather = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=46868eed279cfe0e7919f07a4b87f369').read() 

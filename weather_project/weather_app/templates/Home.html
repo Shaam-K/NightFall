@@ -38,11 +38,10 @@
         </div>
     </div>
     <div class="w3-center" style="margin-top: 5rem;">
-    <form method="GET" id="location_form">
-        <div class="w3-mobile">
-        <input type="text" id="location" name="location" onfocus="if (this.value=='Enter Location') this.value='' ; else this.value='Enter Location';" value="Enter Location">
+    <form method="POST" id="location_form">
+        {% csrf_token %}
+        <input type="text" id="location" name="enter" placeholder="Enter Location">
         <input type="submit" id="submit" value="search" style="margin-left: 0.5rem;">
-        </div>
     </form>
     </div>
     <div class="w3-center" style="margin-top: 10rem;">

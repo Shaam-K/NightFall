@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from weather_app.views import homepage
 urlpatterns = [
-    path('', homepage, name="location"),
+    path('', homepage, name="location_form"),
     path('admin/', admin.site.urls),
 ]
