@@ -51,5 +51,17 @@
             <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-left: 3.5rem;">{% load static %} <img src="{% static 'icons/maps.svg' %}" style="width:3rem; margin-bottom: 0.5rem;"> Maps</a>  
         </div>
     </div>
+    {% if country_code and longitude and latitude and temp and pressure and humidity %}
+        <h3>country code : {{country_code}}</h1>
+        <h5>longitude : {{longitude}}</h5>
+        <h5>latitude : {{latitude}}</h5>
+        <h5>temp : {{temp}}</h5>
+        <h5>pressure : {{pressure}} </h5>
+        <h5>humidity : {{humidity}}</h5>
+    {% endif %}
+    {% if so2 and co %}
+    <p>{{ so2 }}</p>
+    <p>{{ co }}</p>
+    {% endif %}
 </body>
 </html>
