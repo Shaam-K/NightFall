@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from weather_app.views import homepage
+from weather_app.views import weather
 urlpatterns = [
-    path('', homepage , name="location_form"),
+    path('', weather , name="location_form"),
     path('admin/', admin.site.urls),
 ]

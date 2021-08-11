@@ -41,7 +41,7 @@
     <form method="POST" id="location_form">
         {% csrf_token %}
         <input type="text" id="location" name="enter" placeholder="Enter Location">
-        <input type="submit" id="submit" value="search" style="margin-left: 0.5rem;">
+        <input type="submit" id="submit" name="search" style="margin-left: 0.5rem;">
     </form>
     </div>
     <div class="w3-center" style="margin-top: 10rem;">
@@ -51,17 +51,12 @@
             <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-left: 3.5rem;">{% load static %} <img src="{% static 'icons/maps.svg' %}" style="width:3rem; margin-bottom: 0.5rem;"> Maps</a>  
         </div>
     </div>
-    {% if country_code and longitude and latitude and temp and pressure and humidity %}
+    {% if country_code and longitude and latitude and so2 and co%}
         <h3>country code : {{country_code}}</h1>
         <h5>longitude : {{longitude}}</h5>
         <h5>latitude : {{latitude}}</h5>
-        <h5>temp : {{temp}}</h5>
-        <h5>pressure : {{pressure}} </h5>
-        <h5>humidity : {{humidity}}</h5>
-    {% endif %}
-    {% if so2 and co %}
-    <p>{{ so2 }}</p>
-    <p>{{ co }}</p>
+        <h5>so2: {{ so2 }}</h5> 
+        <h5>co : {{ co }}</h5>
     {% endif %}
 </body>
 </html>
