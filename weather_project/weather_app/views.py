@@ -1,3 +1,4 @@
+from typing import final
 from django.shortcuts import render
 import urllib.request
 import json
@@ -21,31 +22,62 @@ def weather(request):
             "pressure": str(weather_load['main']['pressure']),
             "humidity": str(weather_load['main']['humidity']),
         }
-        longitude = weather_data['longitude']
-        latitude = weather_data["latitude"]
+        code = weather_data['country_code'] 
+        longitude = weather_data['longitude'] 
+        latitude = weather_data['latitude'] 
         source_pollution = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/air_pollution?lat='+latitude+'&lon='+longitude+'&appid=0be1e7839601e89aa902e6a97e0ccbb5').read()
         pollution_load = json.loads(source_pollution)
         pollution_locator = pollution_load['list']
-        f = weather_data['country_code'] 
-        g = weather_data['longitude'] 
-        h = weather_data['latitude'] 
+        
         for i in pollution_locator:
-            a = i["components"]['so2']
-            b = i['components']['co']
-
+            carbon_monoxide = i['components']['co']
+            nitric_oxide = i['components']['no']
+            nitrogen_dioxide = i['components']['no2']
+            ozone = i['components']['o3']
+            sulfur_dioxide = i['components']['so2']
+            pm_two = i['components']['pm2_5']
+            pm_ten = i['components']['pm10']
+            ammonia = i['components']['nh3']
+            air_quality = i['main']['aqi']
+            
         pollution_data = {
-            "so2" : str(a),
-            "co" : str(b),
+            "co" : carbon_monoxide,
+            "no" : nitric_oxide,
+            "no2" : nitrogen_dioxide,
+            "o3" : ozone,
+            "so2" : sulfur_dioxide,
+            "pm2_5" : pm_two,
+            "pm10" : pm_ten,
+            "nh3" : ammonia,
+            "aqi" : air_quality
         }
-        l = pollution_data['so2'] 
+
+        co = pollution_data['co']
+        no = pollution_data['no']
+        no2 = pollution_data['no2']
+        o3 = pollution_data['o3']
+        so2 = pollution_data['so2']
+        pm2_5 = pollution_data['pm2_5']
+        pm10 = pollution_data['pm10']
+        nh3 = pollution_data['nh3']
+        aqi = pollution_data['aqi']
 
         final_data = {
-            "country_code" : f,
-            "longitude" : g,
-            "latitude" : h,
-            "so2" : l,
-            "co" : b
+            "country_code" : code,
+            "longitude" : float(longitude),
+            "latitude" : float(latitude),
+            "co" : float(co),
+            "no" : float(no),
+            "no2" : float(no2),
+            "o3" : float(o3),
+            "so2": float(so2),
+            "pm2_5" : float(pm2_5),
+            "pm10" : float(pm10),
+            "nh3": float(nh3),
+            "aqi" : float(aqi)
         }
+
+        print(final_data)
     else:
         weather_data = {}
     return render(request, "Home.html", final_data)
