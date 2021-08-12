@@ -78,7 +78,9 @@ def weather(request):
         nh3 = pollution_data['nh3']
         aqi = pollution_data['aqi']
 
-        final_data = {
+        final_data = []
+        
+        intermediate_data = {
             "country_code" : code,
             "longitude" : float(longitude),
             "latitude" : float(latitude),
@@ -101,7 +103,11 @@ def weather(request):
             "nh3": float(nh3),
             "aqi": float(aqi)
         }
+
+        final_data.append(intermediate_data)
+        context = {'final_data' : final_data}
+
         print(final_data)
     else:
         final_data = {}
-    return render(request, "Home.html", final_data)
+    return render(request, "Home.html", context)

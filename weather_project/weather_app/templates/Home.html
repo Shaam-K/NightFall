@@ -51,12 +51,28 @@
             <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-left: 3.5rem;">{% load static %} <img src="{% static 'icons/maps.svg' %}" style="width:3rem; margin-bottom: 0.5rem;"> Maps</a>  
         </div>
     </div>
-    {% if country_code and longitude and latitude and so2 and co%}
-        <h3>country code : {{country_code}}</h1>
-        <h5>longitude : {{longitude}}</h5>
-        <h5>latitude : {{latitude}}</h5>
-        <h5>so2: {{ so2 }}</h5> 
-        <h5>co : {{ co }}</h5>
-    {% endif %}
+    {% for item in final_data %}
+        <h5>1 : {{ item.country_code }}</h5>
+        <h5>2 : {{ item.longitude }}</h5>
+        <h5>3 : {{ item.latitude }}</h5>
+        <h5>4: {{ item.temp }}</h5> 
+        <h5>5 : {{ item.pressure }}</h5>
+        <h5>6 : {{ item.humidity }}</h5>
+        <h5>7 : {{ item.temp_min }}</h5>
+        <h5>8 : {{ item.temp_max }}</h5>
+        <h5>9 : {{ item.feels_like }}</h5>
+        <h5>10 : {{ item.wind_speed }}</h5>
+        <h5>11 : {{ item.wind_deg }}</h5>
+        <h5>12 : {{ item.cloud }}</h5>
+        <h5>13 : {{ item.co }}</h5>
+        <h5>14 : {{ item.no }}</h5>
+        <h5>15 : {{ item.no2 }}</h5>
+        <h5>16 : {{ item.o3 }}</h5>
+        <h5>17 : {{ item.so2 }}</h5>
+        <h5>18 : {{ item.pm2_5 }}</h5>
+        <h5>19 : {{ item.pm10 }}</h5>
+        <h5>20 : {{ item.nh3 }}</h5>
+        <h5>21 : {{ item.aqi }}</h5>
+        {% endfor %}
 </body>
 </html>
