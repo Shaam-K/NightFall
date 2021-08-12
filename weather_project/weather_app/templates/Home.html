@@ -12,12 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400&family=Open+Sans&family=Open+Sans+Condensed:wght@300&family=Rubik:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"></script>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/bars.css' %}"> 
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/comp_temp.css' %}">
 </head>
 <body>
     <div class="w3-bar w3-block">
@@ -41,7 +44,7 @@
     <form method="POST" id="location_form">
         {% csrf_token %}
         <input type="text" id="location" name="enter" placeholder="Enter Location">
-        <input type="submit" id="submit" name="search" style="margin-left: 0.5rem;">
+        <input type="submit" id="submit" value="search" style="margin-left: 0.5rem;">
     </form>
     </div>
     <div class="w3-center" style="margin-top: 10rem;">
@@ -52,27 +55,50 @@
         </div>
     </div>
     {% for item in final_data %}
-        <h5>1 : {{ item.country_code }}</h5>
-        <h5>2 : {{ item.longitude }}</h5>
-        <h5>3 : {{ item.latitude }}</h5>
-        <h5>4: {{ item.temp }}</h5> 
-        <h5>5 : {{ item.pressure }}</h5>
-        <h5>6 : {{ item.humidity }}</h5>
-        <h5>7 : {{ item.temp_min }}</h5>
-        <h5>8 : {{ item.temp_max }}</h5>
-        <h5>9 : {{ item.feels_like }}</h5>
-        <h5>10 : {{ item.wind_speed }}</h5>
-        <h5>11 : {{ item.wind_deg }}</h5>
-        <h5>12 : {{ item.cloud }}</h5>
-        <h5>13 : {{ item.co }}</h5>
-        <h5>14 : {{ item.no }}</h5>
-        <h5>15 : {{ item.no2 }}</h5>
-        <h5>16 : {{ item.o3 }}</h5>
-        <h5>17 : {{ item.so2 }}</h5>
-        <h5>18 : {{ item.pm2_5 }}</h5>
-        <h5>19 : {{ item.pm10 }}</h5>
-        <h5>20 : {{ item.nh3 }}</h5>
-        <h5>21 : {{ item.aqi }}</h5>
-        {% endfor %}
+    <canvas id="comp_temp" style="position: relative; height:10vh; width:30vh"></canvas>
+    {% load static %}
+    <script>
+    var display_graph =  document.getElementById('comp_temp').getContext('2d');
+    var min_max = new Chart(display_graph, {
+    type: 'bar',
+    data : {
+            labels: ['Min Temp', 'Max Temp'],
+            datasets: [{
+                barPercentage: 0.3,
+                data : [
+                '{{ item.temp_min }}', 
+                '{{ item.temp_max }}',
+            ],
+                backgroundColor: [
+                    'rgba(77, 77, 255, 0.5)',
+                    'rgba(230, 57, 70, 0.5)',      
+                ],
+                borderColor: [
+                    '#3377ff',
+                    '#ff3333'
+                ],
+                borderWidth: 3
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                display: true,
+                text: 'Temperature Comparision :',
+                align : 'center',
+                    font : {
+                        size : 30,
+                        family : 'Metrophobic',
+                    }
+                },
+                legend : {
+                    display : false
+                },
+            }
+        },
+    })
+    </script>
+    
+    {% endfor %}
 </body>
 </html>
