@@ -18,13 +18,30 @@ def weather(request):
             "country_code": str(weather_load['sys']['country']),
             "longitude": str(weather_load['coord']['lon']),
             "latitude": str(weather_load['coord']['lat']),
-            "temp": str(weather_load['main']['temp']) + 'F',
+            "temp": str(weather_load['main']['temp']),
             "pressure": str(weather_load['main']['pressure']),
             "humidity": str(weather_load['main']['humidity']),
+            "temp_min": str(weather_load['main']['temp_min']),
+            "temp_max": str(weather_load['main']['temp_max']),
+            "feels_like": str(weather_load['main']['feels_like']),
+            "wind_speed": str(weather_load['wind']['speed']),
+            "wind_deg": str(weather_load['wind']['deg']),
+            "clouds": str(weather_load['clouds']['all']),
         }
+
         code = weather_data['country_code'] 
         longitude = weather_data['longitude'] 
         latitude = weather_data['latitude'] 
+        temp = weather_data['temp']
+        pressure = weather_data['pressure']
+        humidity = weather_data['humidity']
+        temp_min = weather_data['temp_min']
+        temp_max = weather_data['temp_max']
+        feels_like = weather_data['feels_like']
+        wind_speed = weather_data['wind_speed']
+        wind_deg = weather_data['wind_deg']
+        clouds = weather_data['clouds']
+
         source_pollution = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/air_pollution?lat='+latitude+'&lon='+longitude+'&appid=0be1e7839601e89aa902e6a97e0ccbb5').read()
         pollution_load = json.loads(source_pollution)
         pollution_locator = pollution_load['list']
@@ -39,7 +56,6 @@ def weather(request):
             pm_ten = i['components']['pm10']
             ammonia = i['components']['nh3']
             air_quality = i['main']['aqi']
-            
         pollution_data = {
             "co" : carbon_monoxide,
             "no" : nitric_oxide,
@@ -66,6 +82,15 @@ def weather(request):
             "country_code" : code,
             "longitude" : float(longitude),
             "latitude" : float(latitude),
+            "temp" : float(temp),
+            "pressure": float(pressure),
+            "humidity" : float(humidity),
+            "temp_min" : float(temp_min),
+            "temp_max" : float(temp_max),
+            "feels_like" : float(feels_like),
+            "wind_speed" : float(wind_speed),
+            "wind_deg" : float(wind_deg),
+            "cloud" : float(clouds),
             "co" : float(co),
             "no" : float(no),
             "no2" : float(no2),
@@ -74,10 +99,9 @@ def weather(request):
             "pm2_5" : float(pm2_5),
             "pm10" : float(pm10),
             "nh3": float(nh3),
-            "aqi" : float(aqi)
+            "aqi": float(aqi)
         }
-
         print(final_data)
     else:
-        weather_data = {}
+        final_data = {}
     return render(request, "Home.html", final_data)
