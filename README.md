@@ -61,6 +61,48 @@
       tionary and then renders out the graph in a html canvas. Canvas do not behave well for responsive web design
       but it was the easiest way for me to send the data coming from django to javascript.
 ---
+## How to download and use my project:
+
+Before you try to download, search how to install django, also make sure to install django in a virtual env
+
+* Django and Virtual ENV setup : (https://www.youtube.com/watch?v=VuETrwKYLTM) NOTE : Follow the tutorial till
+  6:16.
+  
+  * run the project in the virtual env, to access the virtual env just type `workon` on the cmd
+  * also for this demonstration, my virtual env name is "(django)"
+
+* Step 1 : Be on the first page of the project, do not open any folder displayed on the repo. Now click on the green
+           color button called "code", you should see an option called "Download ZIP". Click that and download it
+           in any drive.
+
+* Step 2 : open cmd (command line) and go to the directory of the folder.
+           ex : **(django) E:\NightFall-main>** where E:\ is the "NightFall-main" is the folder
+           
+* Step 3 : Now type : **(django) E:\NightFall-main>cd NightFall-main**
+           you should get the following result : **(django) E:\NightFall-main\NightFall-main>**
+
+* Step 4 : Now type : **(django) E:\NightFall-main\NightFall-main>cd weather_project**
+           you should get the following result : **(django) E:\NightFall-main\NightFall-main\weather_project>**
+
+* Step 5 : Now type : `python manage.py migrate`
+           you should see migrations being deployed and run
+
+* Step 6 : Now type : `python manage.py runserver`
+           you should see : 
+
+            Watching for file changes with StatReloader
+            Performing system checks...
+
+            System check identified no issues (0 silenced).
+            August 13, 2021 - 19:06:45
+            Django version 3.2.5, using settings 'weather_project.settings'
+            Starting development server at http://127.0.0.1:8000/
+            Quit the server with CTRL-BREAK.
+        
+* Step 7 : Now click on this link (http://127.0.0.1:8000/) and you should see my website
+
+Thanks for downloading!
+
 Project Members:
 * Shaam
     * Class : 12 D
