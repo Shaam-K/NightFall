@@ -20,7 +20,7 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/comp_temp.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/charts.css' %}">
 </head>
 <body>
     <div class="w3-bar w3-block">
@@ -55,29 +55,35 @@
         </div>
     </div>
     {% for item in final_data %}
+    <div class="w3-center">
     <canvas id="comp_temp" style="position: relative; height:10vh; width:30vh"></canvas>
+    <canvas id="sky" style="position: relative; height:10vh; width:30vh"></canvas>
+    </div>
     {% load static %}
     <script>
-    var display_graph =  document.getElementById('comp_temp').getContext('2d');
-    var min_max = new Chart(display_graph, {
+    var temp_graph =  document.getElementById('comp_temp').getContext('2d');
+    var min_max = new Chart(temp_graph, {
     type: 'bar',
     data : {
-            labels: ['Min Temp', 'Max Temp'],
+            labels: ['Min Temp', 'Max Temp', 'Feels Like'],
             datasets: [{
                 barPercentage: 0.3,
                 data : [
                 '{{ item.temp_min }}', 
                 '{{ item.temp_max }}',
+                '{{ item.feels_like }}',
             ],
                 backgroundColor: [
                     'rgba(77, 77, 255, 0.5)',
-                    'rgba(230, 57, 70, 0.5)',      
+                    'rgba(230, 57, 70, 0.5)',  
+                    'rgba(255, 128, 0, 0.5)',   
                 ],
                 borderColor: [
                     '#3377ff',
-                    '#ff3333'
+                    '#ff3333',
+                    '#ff8000',
                 ],
-                borderWidth: 3
+                borderWidth: 1
             }]
         },
         options: {
@@ -96,7 +102,40 @@
                 },
             }
         },
-    })
+    });
+
+    var sky_graph =  document.getElementById('sky').getContext('2d');
+    var cloud_humidity = new Chart(sky_graph, {
+    type: 'line',
+    data : {
+            labels: ['Sea Level (hPa)', 'Ground Level (hPa)'],
+            datasets: [{
+                data : [
+                '{{ item.sea_level }}',
+                '{{ item.grnd_level }}', 
+                ],
+                fill: true,
+                backgroundColor: 'rgba(92, 10, 255, 0.5)', 
+                borderColor: '#47476b',
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                display: true,
+                text: 'Elevation :',
+                align : 'center',
+                    font : {
+                        size : 30,
+                        family : 'Metrophobic',
+                    }
+                },
+                legend : {
+                    display : false
+                },
+            }
+        },
+    });
     </script>
     
     {% endfor %}
