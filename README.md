@@ -6,7 +6,7 @@ Project Members:
     * Roll No : 43
 
 * I would like to thank Chettinad Vidyashram and my sir Sathiraj Thomas for giving me a chance to do this project.
-  Computer science is my passion and I appreciate the chance given to me.
+  Computer science is my passion and I appreciate the chance that was given to me.
 ## Introduction and About :
 
 
@@ -14,7 +14,7 @@ Project Members:
 
 * Project : Weather App
 
-    My project named **Nightfall** allows you to gather data that is being broadcasted by weather stations. All you have to do is type the name of the city in the search bar and you will be able to see information about the weather in graphical representation.
+    My project named **Nightfall** allows you to gather data that is being broadcasted by weather stations worldwide. All you have to do is type the name of the city in the search bar and you will be able to see information about the weather in graphical representation.
 
 *  Languages / Frameworks Used:
 
@@ -42,7 +42,7 @@ Project Members:
     * Example of an API :(http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={API key}) 
 
     * Most API's require an API KEY which is used for authorisation so that other people cant send commands on 
-     your app. NOTE : Dont leave your api keys as it during production, its an bad idea.
+     your app. NOTE : Dont leave your api keys as it during production, its a bad idea.
 
     * I used openweather where it had a weather and pollution api
 
