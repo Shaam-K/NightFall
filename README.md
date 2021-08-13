@@ -37,7 +37,7 @@ Project Members:
     * API technology especially RESTful (REST is a method like HTTP) based ones are revolutionary as without it 
       developers would have to download extremely large files of data, and most of the data collected would get outdated quickly.
 
-    * Example of an API :(http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={API key}) 
+    * Example of an API : http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={API key} 
 
     * Most API's require an API KEY which is used for authorisation so that other people cant send commands on 
      your app. NOTE : Dont leave your api keys as it during production, its a bad idea.
@@ -54,7 +54,7 @@ Project Members:
       local server to develop in. To create a web application you need to create an app within django. After you can
       write the logic of the app in views.py. In my project I created a function that searches for a name in a html form. Then it gets the name of the city by the html form. I           used the GET method with form that allows me to send my city to views.py where I create a dictionary that sets parameters on what type of data should be rendered from the         API. The final data is then sent back to the html page. And hence displays the data.
 
-    * local server link : (http://127.0.0.1:8000/)
+    * local server link : http://127.0.0.1:8000/
 
 * W3.CSS :
 
@@ -70,13 +70,13 @@ Project Members:
 
 Before you try to download, search how to install django, also make sure to install django in a virtual env
 
-* Django and Virtual ENV setup : (https://www.youtube.com/watch?v=VuETrwKYLTM) NOTE : Follow the tutorial till
+* Django and Virtual ENV setup : https://www.youtube.com/watch?v=VuETrwKYLTM NOTE : Follow the tutorial till
   6:16.
   
   * run the project in the virtual env, to access the virtual env just type `workon` on the cmd
   * also for this demonstration, my virtual env name is "(django)"
 
-* Step 1 : Click on this link (https://github.com/Shaam-K/NightFall) Now click on the green color button called 
+* Step 1 : Click on this link https://github.com/Shaam-K/NightFall Now click on the green color button called 
            "code", you should see an option "Download ZIP" click on that and make sure to extract that folder
 
 * Step 2 : open cmd (command line) and go to the directory of the folder.
