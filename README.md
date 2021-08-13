@@ -71,21 +71,41 @@ Before you try to download, search how to install django, also make sure to inst
   * run the project in the virtual env, to access the virtual env just type `workon` on the cmd
   * also for this demonstration, my virtual env name is "(django)"
 
-* Step 1 : Be on the first page of the project, do not open any folder displayed on the repo. Now click on the green
-           color button called "code", you should see an option called "Download ZIP". Click that and download it
-           in any drive.
+* Step 1 : Click on this link (https://github.com/Shaam-K/NightFall) Now click on the green color button called 
+           "code", you should see an option "Download ZIP" click on that and make sure to extract that folder
 
 * Step 2 : open cmd (command line) and go to the directory of the folder.
            ex : **(django) E:\NightFall-main>** where E:\ is the "NightFall-main" is the folder
            
-* Step 3 : Now type : **(django) E:\NightFall-main>cd NightFall-main**
+* Step 3 : Now type : **cd NightFall-main**
            you should get the following result : **(django) E:\NightFall-main\NightFall-main>**
 
-* Step 4 : Now type : **(django) E:\NightFall-main\NightFall-main>cd weather_project**
+* Step 4 : Now type : **cd weather_project**
            you should get the following result : **(django) E:\NightFall-main\NightFall-main\weather_project>**
 
 * Step 5 : Now type : `python manage.py migrate`
-           you should see migrations being deployed and run
+           you should see :
+
+           Operations to perform:
+            Apply all migrations: admin, auth, contenttypes, historical_data, sessions
+
+           Running migrations:
+            Applying contenttypes.0001_initial... OK
+            Applying auth.0001_initial... OK
+            Applying admin.0001_initial... OK
+            Applying admin.0002_logentry_remove_auto_add... OK
+            Applying admin.0003_logentry_add_action_flag_choices... OK
+            Applying contenttypes.0002_remove_content_type_name... OK
+            Applying auth.0002_alter_permission_name_max_length... OK
+            Applying auth.0003_alter_user_email_max_length... OK
+            Applying auth.0004_alter_user_username_opts... OK
+            Applying auth.0005_alter_user_last_login_null... OK
+            Applying auth.0006_require_contenttypes_0002... OK
+            Applying auth.0007_alter_validators_add_error_messages... OK
+            Applying auth.0008_alter_user_username_max_length... OK
+            Applying auth.0009_alter_user_last_name_max_length... OK
+            Applying historical_data.0001_initial... OK
+            Applying sessions.0001_initial... OK
 
 * Step 6 : Now type : `python manage.py runserver`
            you should see : 
