@@ -24,8 +24,7 @@
 
 ## Description of each technology used:
 
-* API : 
-    ![Image of API](https://cdn.artandlogic.com/wp-content/uploads/django.jpeg)
+* API :
 
     * Also called Application Programming Interface where it acts as the intermediate between 2 applications. For 
       example, you can say that API is the waiter at the hotel, you ask him for food which in this case is "data" and the cook which is the "system / database" makes it for you based on what you asked.
@@ -41,6 +40,7 @@
     * I used openweather where it had a weather and pollution api
 
 * DJANGO : 
+
     * Django is a python framework where it allows for fast and scalable web applications. A framework is an ext
       ension to the programming language. It often has more uses or makes some processes easier to implement. in
       my project Django serves as the one that collects the data from the API and projecting the result to the HTML.
@@ -52,13 +52,14 @@
     * local server link : (http://127.0.0.1:8000/)
 
 * W3.CSS :
+
     * Used along with regular CSS, it helpful for centering multiple elements without repeating code
 
-* CHART.JS : 
+* CHART.JS :
+
     * Chart.js is a javascript framework that makes displaying graphs in html easier. It takes data from django dic-
       tionary and then renders out the graph in a html canvas. Canvas do not behave well for responsive web design
       but it was the easiest way for me to send the data coming from django to javascript.
-
 ---
 Project Members:
 * Shaam
