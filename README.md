@@ -31,8 +31,9 @@
     * API technology especially RESTful (REST is a method like HTTP) based ones are revolutionary as without it 
       developers would have to download extremely large files of data, and most of the data collected would be outdated after sometime. 
 
-    * Example of an API :(api.openweathermap.org/data/2.5/forecast?id=524901&appid={API key}) 
-      click on the link to see what an API looks like
+    * Example of an API :(https://samples.openweathermap.org/data/2.5/forecast?id=524901&                       appid=b1b15e88fa797225412429c1c50c122a1) 
+    
+    click on the link to see what an API looks like
 
     * Most API's require an API KEY which is used for authorisation so that other people cant send commands on 
      your application.
