@@ -1,20 +1,18 @@
-# NightFall :
+# NightFall Weather Application :
 
 Project Members:
 * Shaam
-    * Class : 12 D
-    * Roll No : 43
 
-* I would like to thank Chettinad Vidyashram and my sir Sathiraj Thomas for giving me a chance to do this project.
+* I would like to thank Chettinad Vidyashram and my sir Sathiaraj Thomas for giving me a chance to do this project.
   Computer science is my passion and I appreciate the chance that was given to me.
+  
 ## Introduction and About :
 
-
-    This is my 12th Standard CSC project, where the use of python is mandatory. I made this repository to store all my source code.
+ This is my 12th Standard CSC project, where the use of python is mandatory. I made this repository to store all my source code.
 
 * Project : Weather App
 
-    My project named **Nightfall** allows you to gather data that is being broadcasted by weather stations worldwide. All you have to do is type the name of the city in the search bar and you will be able to see information about the weather in graphical representation.
+    My project named **Nightfall** allows you to gather data that is being broadcasted by weather stations worldwide. All you have to do is type the name of the city in the search     bar and you will be able to see information about the weather in graphical representation.
 
 *  Languages / Frameworks Used:
 
@@ -27,19 +25,19 @@ Project Members:
         * CHART.JS
 
     * PYTHON
-        * DJANGO
-
+        * DJANGO 
+                                                                                  
 ## Description of each technology used:
 
 * API :
 
     * Also called Application Programming Interface where it acts as the intermediate between 2 applications. For 
-      example, you can say that API is the waiter at the hotel, you ask him for food which in this case is "data" and the cook which is the "system / database" makes it for you based on what you asked.
+      example, you can say that API is the waiter at the hotel, you ask him for food which in this case is "data" and the cook which is the "system / database" makes it for you         based on what you asked.
 
     * API technology especially RESTful (REST is a method like HTTP) based ones are revolutionary as without it 
       developers would have to download extremely large files of data, and most of the data collected would get outdated quickly.
 
-    * Example of an API :(http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={API key}) 
+    * Example of an API : http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={API key} 
 
     * Most API's require an API KEY which is used for authorisation so that other people cant send commands on 
      your app. NOTE : Dont leave your api keys as it during production, its a bad idea.
@@ -54,9 +52,9 @@ Project Members:
 
     * When you create a project in django, it automatically generates a template for your project, which includes a
       local server to develop in. To create a web application you need to create an app within django. After you can
-      write the logic of the app in views.py. In my project I created a function that searches for a name in a html form. Then it gets the name of the city by the html form. I used the GET method with form that allows me to send my city to views.py where I create a dictionary that sets parameters on what type of data should be rendered from the API. The final data is then sent back to the html page. And hence displays the data.
+      write the logic of the app in views.py. In my project I created a function that searches for a name in a html form. Then it gets the name of the city by the html form. I           used the GET method with form that allows me to send my city to views.py where I create a dictionary that sets parameters on what type of data should be rendered from the         API. The final data is then sent back to the html page. And hence displays the data.
 
-    * local server link : (http://127.0.0.1:8000/)
+    * local server link : http://127.0.0.1:8000/
 
 * W3.CSS :
 
@@ -67,18 +65,18 @@ Project Members:
     * Chart.js is a javascript framework that makes displaying graphs in html easier. It takes data from django dic-
       tionary and then renders out the graph in a html canvas. Canvas do not behave well for responsive web design
       but it was the easiest way for me to send the data coming from django to javascript.
----
+
 ## How to download and use my project:
 
 Before you try to download, search how to install django, also make sure to install django in a virtual env
 
-* Django and Virtual ENV setup : (https://www.youtube.com/watch?v=VuETrwKYLTM) NOTE : Follow the tutorial till
+* Django and Virtual ENV setup : https://www.youtube.com/watch?v=VuETrwKYLTM NOTE : Follow the tutorial till
   6:16.
   
   * run the project in the virtual env, to access the virtual env just type `workon` on the cmd
   * also for this demonstration, my virtual env name is "(django)"
 
-* Step 1 : Click on this link (https://github.com/Shaam-K/NightFall) Now click on the green color button called 
+* Step 1 : Click on this link https://github.com/Shaam-K/NightFall Now click on the green color button called 
            "code", you should see an option "Download ZIP" click on that and make sure to extract that folder
 
 * Step 2 : open cmd (command line) and go to the directory of the folder.
@@ -126,6 +124,6 @@ Before you try to download, search how to install django, also make sure to inst
             Starting development server at http://127.0.0.1:8000/
             Quit the server with CTRL-BREAK.
         
-* Step 7 : Now click on this link (http://127.0.0.1:8000/) and you should see my website
+* Step 7 : Now click on this link http://127.0.0.1:8000/ and you should see my website
 
 Thanks for downloading!
