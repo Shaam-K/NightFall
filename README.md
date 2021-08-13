@@ -1,5 +1,9 @@
 # NightFall :
 
+Project Members:
+* Shaam
+    * Class : 12 D
+    * Roll No : 43
 ## Introduction and About :
 
 
@@ -122,9 +126,3 @@ Before you try to download, search how to install django, also make sure to inst
 * Step 7 : Now click on this link (http://127.0.0.1:8000/) and you should see my website
 
 Thanks for downloading!
-
-Project Members:
-* Shaam
-    * Class : 12 D
-    * Roll No : 43
----
