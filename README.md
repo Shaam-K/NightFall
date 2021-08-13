@@ -4,6 +4,9 @@ Project Members:
 * Shaam
     * Class : 12 D
     * Roll No : 43
+
+* I would like to thank Chettinad Vidyashram and my sir Sathiraj Thomas for giving me a chance to do this project.
+  Computer science is my passion and I appreciate the chance given to me.
 ## Introduction and About :
 
 
