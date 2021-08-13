@@ -1,4 +1,3 @@
-from typing import final
 from django.shortcuts import render
 import urllib.request
 import json
