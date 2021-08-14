@@ -2,7 +2,7 @@
 
 TERMS : The project is being hosted by me, ask my permission before you try to host the project yourself
  
- feel free to visit:  https://nightfall-app.herokuapp.com/
+ Feel free to visit:  https://nightfall-app.herokuapp.com/
 
 # NightFall Weather Application :
 
