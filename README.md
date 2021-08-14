@@ -3,6 +3,7 @@
 TERMS : The project is being hosted by me, ask my permission before you try to host the project yourself
  
  Feel free to visit:  https://nightfall-app.herokuapp.com/
+ ( the website is not mobile friendly )
 
 # NightFall Weather Application :
 
