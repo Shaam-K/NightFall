@@ -51,7 +51,8 @@
     </form>
     </div>
     {% for item in final_data %}
-    <h1 class="w3-center" style="padding-top:15rem; " id="weather">Weather :</h1>
+    <h1 class="w3-center" style="padding-top:15rem;" id="weather">Weather Details :</h1>
+    <br>
     <table style="margin-left: 24rem; font-family: 'Metrophobic';">
     <tr>
         <td style="margin-right: 5rem;"><h3>Country Code : {{ item.country_code }}</h3></td>
@@ -70,8 +71,10 @@
         <td style="padding-left: 25rem;"><h3>Clouds : {{ item.cloud}} </h3></td>
     </tr>
     </table>
-    <canvas id="temp" style="position: relative; height:10vh; width:30vh"></canvas>
+    <canvas id="temp" style="margin-top: 20rem;"></canvas>
     <canvas id="pollution" style="margin-top: 20rem;"></canvas>
+    <canvas id="air_quality" style="margin-top: 20rem"></canvas>
+    <h3 class="w3-center" style="font-family:  'Metrophobic'; font-size: 2rem;">( 1 = Good , 2 = Fair , 3 = Moderate , 4 = Poor , 5 = Very Poor )</h3>
     </div>
     {% load static %}
     <script>
@@ -91,11 +94,13 @@
                 '{{ item.feels_like }}',
             ],
                 backgroundColor: [
+                    'rgba(255, 0, 102, 0.55)',
                     'rgba(77, 77, 255, 0.5)',
                     'rgba(230, 57, 70, 0.5)',  
                     'rgba(255, 128, 0, 0.5)',   
                 ],
                 borderColor: [
+                    '#ff0066',
                     '#3377ff',
                     '#ff3333',
                     '#ff8000',
@@ -123,7 +128,7 @@
     var components = new Chart(pollution_graph, {
     type: 'pie',
     data : {
-            labels: ['Carbon Monoxide(co) ', 'Nitric Oxide(no) ', 'Nitrogen Dioxide(no2) ', 'Ozone(o3) ', 'Sulphur Dioxide(so2) ', 'Fine Particulate(PM2.5) ', 'Inhalable Particulate(PM10) ', 'Ammonia(nh3) '],
+            labels: ['Carbon Monoxide (co) ', 'Nitric Oxide (no) ', 'Nitrogen Dioxide (no2) ', 'Ozone (o3) ', 'Sulphur Dioxide (so2) ', 'Fine Particulate (PM2.5) ', 'Inhalable Particulate (PM10) ', 'Ammonia (nh3) '],
             datasets: [{
                 data : [
                 '{{ item.co }}', 
@@ -154,7 +159,7 @@
             plugins: {
                 title: {
                     display : true,
-                    text : "Pollution Analysis",
+                    text : "Pollution Composition",
                     font : {
                         size : 40
                     }
@@ -162,6 +167,40 @@
                 legend : {
                     display : true,
                     position : 'right',
+                },
+            }
+        },
+    });
+    var aqi =  document.getElementById('air_quality').getContext('2d');
+    var air = new Chart(aqi, {
+    type: 'bar',
+    data : {
+            labels: ['AQI'],
+            datasets: [{
+                barPercentage: 0.3,
+                data : [
+                '{{ item.aqi }}', 
+            ],
+                backgroundColor: [
+                    'rgba(0, 229, 230, 0.3)', 
+                ],
+                borderColor: [
+                    '#00e5e6',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display : true,
+                    text : "      Air Quality",
+                    font : {
+                        size : 40
+                    }
+                },
+                legend : {
+                    display : false
                 },
             }
         },

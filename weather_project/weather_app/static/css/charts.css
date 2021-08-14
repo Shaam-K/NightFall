@@ -1,10 +1,14 @@
 #temp {
-    margin-top: 10rem;
     margin-left : 10rem;
     margin-right : 10rem;
 }
 
 #pollution {
+    margin-left : 10rem;
+    margin-right : 10rem;
+}
+
+#air_quality {
     margin-left : 10rem;
     margin-right : 10rem;
 }
