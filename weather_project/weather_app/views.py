@@ -26,8 +26,6 @@ def weather(request):
             "wind_speed": str(weather_load['wind']['speed']),
             "wind_deg": str(weather_load['wind']['deg']),
             "clouds": str(weather_load['clouds']['all']),
-            "sea_level": str(weather_load['main']['sea_level']),
-            "grnd_level": str(weather_load['main']['grnd_level']),
         }
 
         code = weather_data['country_code'] 
@@ -42,8 +40,6 @@ def weather(request):
         wind_speed = weather_data['wind_speed']
         wind_deg = weather_data['wind_deg']
         clouds = weather_data['clouds']
-        sea_level = weather_data['sea_level']
-        grnd_level = weather_data['grnd_level']
 
         source_pollution = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/air_pollution?lat='+latitude+'&lon='+longitude+'&appid=0be1e7839601e89aa902e6a97e0ccbb5').read()
         pollution_load = json.loads(source_pollution)
@@ -106,8 +102,6 @@ def weather(request):
             "pm10" : float(pm10),
             "nh3": float(nh3),
             "aqi": float(aqi),
-            "sea_level": float(sea_level),
-            "grnd_level": float(grnd_level),
         }
 
         final_data.append(intermediate_data)

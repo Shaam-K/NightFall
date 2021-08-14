@@ -1,11 +1,10 @@
-#comp_temp {
+#temp {
     margin-top: 10rem;
     margin-left : 10rem;
     margin-right : 10rem;
 }
 
-#sky { 
-    margin-top: 10rem;
-    margin-left : 12rem;
+#pollution {
+    margin-left : 10rem;
     margin-right : 10rem;
 }

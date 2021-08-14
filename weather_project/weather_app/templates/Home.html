@@ -26,7 +26,11 @@
     <div class="w3-bar w3-block">
         <div class="nav">
         <a href="#" class="w3-bar-item w3-left" style="font-size: 2.5em; font-family: 'Rubik', sans-serif;">{% load static %} <img src="{% static 'icons/logo.svg' %}" style="width: 5rem;"/>Nightfall</a>
-        <a href="#" class="w3-bar-item w3-right" style="font-size: 2em; font-family: 'Rubik', sans-serif;">Login {% load static %} <img src="{% static 'icons/account.svg' %}" class = "bars" style="width: 4rem; padding-bottom: 0.5rem"/></a>
+        <div class="w3-right" style="margin-top: 0.5rem;">
+        <a href="#weather" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/weather.svg' %}" style="width:3rem; margin-bottom: 0.5rem; padding-right: 0.3rem;">Weather</a>
+        <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/air.svg' %}" style="width:3rem; margin-bottom: 0.5rem;"> Air Quality</a>
+        <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/maps.svg' %}" style="width:3rem; margin-bottom: 0.5rem;"> Maps</a>
+        </div>
         <input type="checkbox" id="active">
       <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
       <div class="wrapper" style="font-family: 'Metrophobic', sans-serif;">
@@ -40,28 +44,41 @@
       </div>
         </div>
     </div>
-    <div class="w3-center" style="margin-top: 5rem;">
+    <div class="w3-center" style="margin-top: 10rem; margin-left: 1rem;">
     <form method="POST" id="location_form">
         {% csrf_token %}
         <input type="text" id="location" name="enter" placeholder="Enter Location">
         <input type="submit" id="submit" value="search" style="margin-left: 0.5rem;">
     </form>
     </div>
-    <div class="w3-center" style="margin-top: 10rem;">
-        <div class="responsive">
-            <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-right: 3rem">{% load static %} <img src="{% static 'icons/weather.svg' %}" style="width:3rem; margin-bottom: 0.5rem; padding-right: 0.3rem;">Weather</a>
-            <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/air.svg' %}" style="width:3rem; margin-bottom: 0.5rem;"> Air Quality</a>
-            <a href="#" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-left: 3.5rem;">{% load static %} <img src="{% static 'icons/maps.svg' %}" style="width:3rem; margin-bottom: 0.5rem;"> Maps</a>  
-        </div>
-    </div>
     {% for item in final_data %}
-    <div class="w3-center">
-    <canvas id="comp_temp" style="position: relative; height:10vh; width:30vh"></canvas>
+    <h1 class="w3-center" style="padding-top:15rem; " id="weather">Weather :</h1>
+    <table style="margin-left: 24rem">
+    <tr>
+        <td style="margin-right: 5rem;"><h3>Country Code : {{ item.country_code }}</h3></td>
+        <td style="padding-left: 25rem;"><h3>Pressure : {{ item.pressure}} hPa</h3></td>
+    </tr>
+    <tr>
+        <td><h3>Longitude : {{ item.longitude }}</h3></td>
+        <td style="padding-left: 25rem;"><h3>Latitude : {{ item.latitude}} </h3></td>
+    </tr>
+    <tr>
+        <td><h3>Wind Speed : {{ item.wind_speed }}</h3></td>
+        <td style="padding-left: 25rem;"><h3>Wind Degrees : {{ item.wind_deg}} °</h3></td>
+    </tr>
+    <tr>
+        <td><h3>Humidity : {{ item.humidity }}</h3></td>
+        <td style="padding-left: 25rem;"><h3>Clouds : {{ item.cloud}} </h3></td>
+    </tr>
+    </table>
+    <canvas id="temp" style="position: relative; height:10vh; width:30vh"></canvas>
     <canvas id="sky" style="position: relative; height:10vh; width:30vh"></canvas>
+    <canvas id="pollution"></canvas>
     </div>
     {% load static %}
     <script>
-    var temp_graph =  document.getElementById('comp_temp').getContext('2d');
+    Chart.defaults.font.size = 27;
+    var temp_graph =  document.getElementById('temp').getContext('2d');
     var min_max = new Chart(temp_graph, {
     type: 'bar',
     data : {
@@ -88,15 +105,6 @@
         },
         options: {
             plugins: {
-                title: {
-                display: true,
-                text: 'Temperature Comparision :',
-                align : 'center',
-                    font : {
-                        size : 30,
-                        family : 'Metrophobic',
-                    }
-                },
                 legend : {
                     display : false
                 },
@@ -104,34 +112,42 @@
         },
     });
 
-    var sky_graph =  document.getElementById('sky').getContext('2d');
-    var cloud_humidity = new Chart(sky_graph, {
-    type: 'line',
+    var pollution_graph =  document.getElementById('pollution').getContext('2d');
+    var components = new Chart(pollution_graph, {
+    type: 'pie',
     data : {
-            labels: ['Sea Level (hPa)', 'Ground Level (hPa)'],
+            labels: ['Carbon Monoxide(co) ', 'Nitric Oxide(no) ', 'Nitrogen Dioxide(no2) ', 'Ozone(o3) ', 'Sulphur Dioxide(so2) ', 'Fine Particulate(PM2.5) ', 'Inhalable Particulate(PM10) ', 'Ammonia(nh3) '],
             datasets: [{
                 data : [
-                '{{ item.sea_level }}',
-                '{{ item.grnd_level }}', 
+                '{{ item.co }}', 
+                '{{ item.no }}',
+                '{{ item.no2 }}',
+                '{{ item.o3 }}', 
+                '{{ item.so2 }}', 
+                '{{ item.pm2_5 }}', 
+                '{{ item.pm10 }}', 
+                '{{ item.nh3 }}', 
+            ],
+                backgroundColor: [
+                    'rgba(23, 19, 27, 0.54)',
+                    '#a300cc',
+                    '#ffffff', 
+                    '#99ccff',
+                    '#ffff66', 
+                    '#00cc99',
+                    '#ff3333',
+                    '#ff4da6',
                 ],
-                fill: true,
-                backgroundColor: 'rgba(92, 10, 255, 0.5)', 
-                borderColor: '#47476b',
+                borderColor: [
+                ],
+                borderWidth: 2
             }]
         },
         options: {
             plugins: {
-                title: {
-                display: true,
-                text: 'Elevation :',
-                align : 'center',
-                    font : {
-                        size : 30,
-                        family : 'Metrophobic',
-                    }
-                },
                 legend : {
-                    display : false
+                    display : true,
+                    position : 'right',
                 },
             }
         },
