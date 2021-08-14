@@ -1,3 +1,10 @@
+<img src="https://nightfall-app.herokuapp.com/static/icons/logo.svg" alt="logo" width="100" height="100"/> 
+
+TERMS : The project is being hosted by me, ask my permission before you try to host the project yourself
+ 
+ Feel free to visit:  https://nightfall-app.herokuapp.com/
+ ( the website is not mobile friendly )
+
 # NightFall Weather Application :
 
 Project Members:
@@ -9,6 +16,7 @@ Project Members:
 ## Introduction and About :
 
  This is my 12th Standard CSC project, where the use of python is mandatory. I made this repository to store all my source code.
+ 
 
 * Project : Weather App
 
