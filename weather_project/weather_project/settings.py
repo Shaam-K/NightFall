@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-xfy@b67zj5+z%0uyn1)6w-t)hayan+xv69py9+)s&4abt5c@4f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://nightfall-app.herokuapp.com/', 'localhost', '127.0.0.1']
 
 
 # Application definition
