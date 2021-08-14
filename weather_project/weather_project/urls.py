@@ -18,5 +18,4 @@ from django.urls import path
 from weather_app.views import weather
 urlpatterns = [
     path('', weather , name="location_form"),
-    path('admin/', admin.site.urls),
 ]

@@ -3,13 +3,15 @@ import urllib.request
 import json
 # Create your views here.
 
+# USE OPENWEATHER API TO CREATE THE KEY
+
 def weather(request):
     if request.method == 'POST':
         city = request.POST['enter']
         search_result = city.replace(" ", "%20")
   # source contain JSON data from API
         global longitude,latitude
-        source_weather = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+search_result+'&units=imperial&appid=46868eed279cfe0e7919f07a4b87f369').read() 
+        source_weather = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+search_result+'&units=imperial&appid={YOUR API KEY}').read() 
         # converting JSON data to a dictionary
         weather_load = json.loads(source_weather)
         # data for variable list_of_data
@@ -41,7 +43,7 @@ def weather(request):
         wind_deg = weather_data['wind_deg']
         clouds = weather_data['clouds']
 
-        source_pollution = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/air_pollution?lat='+latitude+'&lon='+longitude+'&appid=0be1e7839601e89aa902e6a97e0ccbb5').read()
+        source_pollution = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/air_pollution?lat='+latitude+'&lon='+longitude+'&appid={YOUR API KEY}').read()
         pollution_load = json.loads(source_pollution)
         pollution_locator = pollution_load['list']
         
