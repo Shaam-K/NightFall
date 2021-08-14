@@ -34,7 +34,7 @@
         <a href="top" class="w3-bar-item w3-left" style="font-size: 2.5em; font-family: 'Rubik', sans-serif;">{% load static %} <img src="{% static 'icons/logo.svg' %}" style="width: 5rem;"/>Nightfall</a>
         <div class="w3-right" style="margin-top: 0.5rem;">
         <a href="#weather" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/weather.svg' %}" style="width:3rem; margin-bottom: 0.5rem; padding-right: 0.3rem;">Weather</a>
-        <a href="#pollution" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/air.svg' %}" style="width:3rem; margin-bottom: 0.5rem;"> Air Quality</a>
+        <a href="#pollution" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-right: 2rem;">{% load static %} <img src="{% static 'icons/air.svg' %}" style="width:3rem; margin-bottom: 0.5rem;"> Air Quality</a>
         </div>
     </div>
     <div class="w3-center" style="margin-top: 20rem; margin-left: 1rem;">
@@ -45,7 +45,7 @@
     </form>
     </div>
     {% for item in final_data %}
-    <h1 class="w3-center" style="padding-top:15rem; font-family: 'Metrophobic'; padding-right: 0.25rem;" id="weather">Weather Details :</h1>
+    <h1 class="w3-center" style="padding-top: 15rem; font-family: 'Metrophobic'; padding-right: 0.25rem;" id="weather">Weather Details :</h1>
     <br>
     <table style="margin-left: 23rem;">
     <tr>

@@ -106,7 +106,6 @@ def weather(request):
 
         final_data.append(intermediate_data)
         context = {'final_data' : final_data}
-        print(context)
     else:
         context = {}
     return render(request, "Home.html", context)
