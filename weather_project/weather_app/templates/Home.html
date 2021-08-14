@@ -16,8 +16,6 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bars.css' %}"> 
-    {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/charts.css' %}">
@@ -25,25 +23,13 @@
 <body>
     <div class="w3-bar w3-block">
         <div class="nav">
-        <a href="#" class="w3-bar-item w3-left" style="font-size: 2.5em; font-family: 'Rubik', sans-serif;">{% load static %} <img src="{% static 'icons/logo.svg' %}" style="width: 5rem;"/>Nightfall</a>
+        <a href="top" class="w3-bar-item w3-left" style="font-size: 2.5em; font-family: 'Rubik', sans-serif;">{% load static %} <img src="{% static 'icons/logo.svg' %}" style="width: 5rem;"/>Nightfall</a>
         <div class="w3-right" style="margin-top: 0.5rem;">
         <a href="#weather" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/weather.svg' %}" style="width:3rem; margin-bottom: 0.5rem; padding-right: 0.3rem;">Weather</a>
         <a href="#pollution" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/air.svg' %}" style="width:3rem; margin-bottom: 0.5rem;"> Air Quality</a>
         </div>
-        <input type="checkbox" id="active">
-      <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
-      <div class="wrapper" style="font-family: 'Metrophobic', sans-serif;">
-         <ul>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Weather</a></li>
-            <li><a href="#">Weather</a></li>
-            <li><a href="#">Air Quality</a></li>
-            <li><a href="#">Maps</a></li>
-         </ul>
-      </div>
-        </div>
     </div>
-    <div class="w3-center" style="margin-top: 10rem; margin-left: 1rem;">
+    <div class="w3-center" style="margin-top: 20rem; margin-left: 1rem;">
     <form method="POST" id="location_form">
         {% csrf_token %}
         <input type="text" id="location" name="enter" placeholder="Enter Location">
@@ -51,24 +37,24 @@
     </form>
     </div>
     {% for item in final_data %}
-    <h1 class="w3-center" style="padding-top:15rem;" id="weather">Weather Details :</h1>
+    <h1 class="w3-center" style="padding-top:15rem; font-family: 'Metrophobic'; padding-right: 0.25rem;" id="weather">Weather Details :</h1>
     <br>
-    <table style="margin-left: 24rem; font-family: 'Metrophobic';">
+    <table style="margin-left: 23rem;">
     <tr>
-        <td style="margin-right: 5rem;"><h3>Country Code : {{ item.country_code }}</h3></td>
-        <td style="padding-left: 25rem;"><h3>Temperature : {{ item.temp}} °F</h3></td>
+        <td style="margin-right: 5rem;"><h3 style=" font-family: 'Metrophobic';">Country Code : {{ item.country_code }}</h3></td>
+        <td style="padding-left: 25rem;"><h3 style=" font-family: 'Metrophobic';">Temperature : {{ item.temp}} °F</h3></td>
     </tr>
     <tr>
-        <td><h3>Longitude : {{ item.longitude }}</h3></td>
-        <td style="padding-left: 25rem;"><h3>Latitude : {{ item.latitude}} </h3></td>
+        <td><h3 style="font-family: 'Metrophobic';">Longitude : {{ item.longitude }}</h3></td>
+        <td style="padding-left: 25rem;"><h3 style="font-family: 'Metrophobic';">Latitude : {{ item.latitude}} </h3></td>
     </tr>
     <tr>
-        <td><h3>Wind Speed : {{ item.wind_speed }}</h3></td>
-        <td style="padding-left: 25rem;"><h3>Wind Degrees : {{ item.wind_deg}} °</h3></td>
+        <td><h3 style="font-family: 'Metrophobic';">Wind Speed : {{ item.wind_speed }}</h3></td>
+        <td style="padding-left: 25rem;"><h3 style="font-family: 'Metrophobic';">Wind Degrees : {{ item.wind_deg}} °</h3></td>
     </tr>
     <tr>
-        <td><h3>Humidity : {{ item.humidity }}</h3></td>
-        <td style="padding-left: 25rem;"><h3>Clouds : {{ item.cloud}} </h3></td>
+        <td><h3 style="font-family: 'Metrophobic';">Humidity : {{ item.humidity }}</h3></td>
+        <td style="padding-left: 25rem;"><h3 style=" font-family: 'Metrophobic';">Clouds : {{ item.cloud}} </h3></td>
     </tr>
     </table>
     <canvas id="temp" style="margin-top: 20rem;"></canvas>
@@ -76,6 +62,13 @@
     <canvas id="air_quality" style="margin-top: 20rem"></canvas>
     <h3 class="w3-center" style="font-family:  'Metrophobic'; font-size: 2rem;">( 1 = Good , 2 = Fair , 3 = Moderate , 4 = Poor , 5 = Very Poor )</h3>
     </div>
+    <div class="w3-bar w3-blue-gray" style="margin-top: 5rem;">
+        <h5 class= "w3-bar-item w3-left" style="font-size: 1rem;">Made by Shaam</h5>
+        <a href="#top"><h5 class="w3-bar-item" style="font-size: 1rem; margin-left: 39rem;">{% load static %} <img src="{% static 'icons/arrow_up.svg' %}" class="w3-bar-item" style="width: 6rem"/></h5></a>
+        <a href="https://github.com/Shaam-K/NightFall"><h5 class= "w3-bar-item w3-right" style="font-size: 1rem;">Source Code available on my Github</h5></a>
+        <a href="https://github.com/Shaam-K/NightFall" class="w3-right"> {% load static %} <img src="{% static 'icons/github.svg' %}" class="w3-bar-item" style="width: 5rem; margin-left: 1rem;"/></a>
+    </div>
+
     {% load static %}
     <script>
     Chart.defaults.font.size = 27;
