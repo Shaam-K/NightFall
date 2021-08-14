@@ -1,4 +1,4 @@
-# ![logo](https://nightfall-app.herokuapp.com/static/icons/logo.svg) NightFall Weather Application :
+# <img src="https://nightfall-app.herokuapp.com/static/icons/logo.svg" alt="logo" width="200"/>) NightFall Weather Application :
 
 Project Members:
 * Shaam
