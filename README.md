@@ -132,3 +132,12 @@ Before you try to download, search how to install django, also make sure to inst
 * Step 7 : Now click on this link http://127.0.0.1:8000/ and you should see my website
 
 Thanks for downloading!
+
+# Resoures Used :
+
+* django : https://www.djangoproject.com/
+* chart.js : https://www.chartjs.org/docs/latest/
+* w3schools : https://www.w3schools.com/
+* Google Fonts : https://fonts.google.com/
+* Google Icons : https://fonts.google.com/icons
+
