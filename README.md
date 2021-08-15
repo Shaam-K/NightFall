@@ -135,7 +135,7 @@ Before you try to download, search how to install django, also make sure to inst
 
 Thanks for downloading!
 
-## Things I removed :
+## Things I removed / Add the Following :
 
 * I removed my api keys, as it was a security concern :
 
