@@ -135,6 +135,17 @@ Before you try to download, search how to install django, also make sure to inst
 
 Thanks for downloading!
 
+## Things I removed :
+
+* I removed my api keys, as it was a security concern :
+
+  * Make your own api keys by creating an account on <a href="https://openweathermap.org/">openweather</a> and generate 2 keys
+  * Add the api key in views.py, replace {YOUR API KEY} with your api key for both weather and pollution
+
+* I removed my django key :
+ 
+  * To get your django key, make an empty folder and create an empty django project, then head to settings.py and copy the key from SECRET_KEY to my project
+
 # Resoures Used :
 
 * django : https://www.djangoproject.com/
