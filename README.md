@@ -9,9 +9,6 @@ TERMS : The project is being hosted by me, ask my permission before you try to h
 
 Project Members:
 * Shaam
-
-* I would like to thank Chettinad Vidyashram and my sir Sathiaraj Thomas for giving me a chance to do this project.
-  Computer science is my passion and I appreciate the chance that was given to me.
   
 ## Introduction and About :
 
