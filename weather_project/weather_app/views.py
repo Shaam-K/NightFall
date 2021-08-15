@@ -3,7 +3,7 @@ import urllib.request
 import json
 # Create your views here.
 
-# USE OPENWEATHER API TO CREATE THE KEY
+# USE OPENWEATHER API TO CREATE THE KEYS
 
 def weather(request):
     if request.method == 'POST':
