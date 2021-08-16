@@ -1,7 +1,7 @@
 <img src="https://nightfall-app.herokuapp.com/static/icons/logo.svg" alt="logo" width="100" height="100"/> 
 
 ## TERMS : 
-* The project is being hosted by me, ask my permission before you try to host the project yourself
+* The project is being hosted by me
 * <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">Project under GNU General Public License v3.0</a>
  
  Feel free to visit:  https://nightfall-app.herokuapp.com/
@@ -147,8 +147,8 @@ Thanks for downloading!
   * To get your django key, make an empty folder and create an empty django project, then head to settings.py and copy the key from SECRET_KEY to my project
 
 # Resoures Used :
-
 * django : https://www.djangoproject.com/
+* openweather : https://openweathermap.org/api
 * chart.js : https://www.chartjs.org/docs/latest/
 * w3schools : https://www.w3schools.com/
 * Google Fonts : https://fonts.google.com/
