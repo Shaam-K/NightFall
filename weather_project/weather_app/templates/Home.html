@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shows you weather data in graphical means based on your search">
     <title>Nightfall App</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,10 +32,10 @@
 <body>
     <div class="w3-bar w3-block">
         <div class="nav">
-        <a href="#" class="w3-bar-item w3-left" style="font-size: 2.5em; font-family: 'Rubik', sans-serif;">{% load static %} <img src="{% static 'icons/logo.svg' %}" style="width: 5rem;"/>Nightfall</a>
+        <a href="#" class="w3-bar-item w3-left" style="font-size: 2.5em; font-family: 'Rubik', sans-serif;">{% load static %} <img src="{% static 'icons/logo.svg' %}" alt= "logo" style="width: 5rem;"/>Nightfall</a>
         <div class="w3-right" style="margin-top: 0.5rem;">
-        <a href="#weather" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/weather.svg' %}" style="width:3rem; margin-bottom: 0.5rem; padding-right: 0.3rem;">Weather</a>
-        <a href="#pollution" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-right: 2rem;">{% load static %} <img src="{% static 'icons/air.svg' %}" style="width:3rem; margin-bottom: 0.5rem;"> Air Quality</a>
+        <a href="#weather" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/weather.svg' %}"  alt="weather" style="width:3rem; margin-bottom: 0.5rem; padding-right: 0.3rem;">Weather</a>
+        <a href="#pollution" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-right: 2rem;">{% load static %} <img src="{% static 'icons/air.svg' %}" alt="air" style="width:3rem; margin-bottom: 0.5rem;"> Air Quality</a>
         </div>
     </div>
     <div class="w3-center" style="margin-top: 20rem; margin-left: 1rem;">
@@ -45,36 +46,28 @@
     </form>
     </div>
     {% for item in final_data %}
-    <h1 class="w3-center" style="padding-top: 15rem; font-family: 'Metrophobic'; padding-right: 0.25rem;" id="weather">Weather Details :</h1>
+    <h1 class="w3-center" style="padding-top: 15rem; font-family: 'Metrophobic'; padding-right: 0.25rem;" id="weather">Weather Details : {{item.display}}</h1>
     <br>
-    <table style="margin-left: 23rem;">
-    <tr>
-        <td style="margin-right: 5rem;"><h3 style=" font-family: 'Metrophobic';">Country Code : {{ item.country_code }}</h3></td>
-        <td style="padding-left: 25rem;"><h3 style=" font-family: 'Metrophobic';">Temperature : {{ item.temp}} °F</h3></td>
-    </tr>
-    <tr>
-        <td><h3 style="font-family: 'Metrophobic';">Longitude : {{ item.longitude }}</h3></td>
-        <td style="padding-left: 25rem;"><h3 style="font-family: 'Metrophobic';">Latitude : {{ item.latitude}} </h3></td>
-    </tr>
-    <tr>
-        <td><h3 style="font-family: 'Metrophobic';">Wind Speed : {{ item.wind_speed }}</h3></td>
-        <td style="padding-left: 25rem;"><h3 style="font-family: 'Metrophobic';">Wind Degrees : {{ item.wind_deg}} °</h3></td>
-    </tr>
-    <tr>
-        <td><h3 style="font-family: 'Metrophobic';">Humidity : {{ item.humidity }}</h3></td>
-        <td style="padding-left: 25rem;"><h3 style=" font-family: 'Metrophobic';">Clouds : {{ item.cloud}} </h3></td>
-    </tr>
-    </table>
+    <ul class="w3-ul w3-center">
+        <li class="w3-padding-large w3-large">Country Code : {{ item.country_code }}</li>
+        <li class="w3-padding-large w3-large">Temperature : {{ item.temp}} °C</li>
+        <li class="w3-padding-large w3-large">Longitude : {{ item.longitude }}</li>
+        <li class="w3-padding-large w3-large">Latitude : {{ item.latitude}}</li>
+        <li class="w3-padding-large w3-large">Wind Speed : {{ item.wind_speed }} m/s</li>
+        <li class="w3-padding-large w3-large">Wind Degrees : {{ item.wind_deg}} °</li>
+        <li class="w3-padding-large w3-large">Humidity : {{ item.humidity }} %</li>
+        <li class="w3-padding-large w3-large">Clouds : {{ item.cloud}} %</li>
+      </ul>
     <canvas id="temp" style="margin-top: 20rem;"></canvas>
     <canvas id="pollution" style="margin-top: 20rem;"></canvas>
     <canvas id="air_quality" style="margin-top: 20rem"></canvas>
     <h3 class="w3-center" style="font-family:  'Metrophobic'; font-size: 2rem;">( 1 = Good , 2 = Fair , 3 = Moderate , 4 = Poor , 5 = Very Poor )</h3>
     </div>
     <div class="w3-bar w3-blue-gray" style="margin-top: 5rem;">
-        <h5 class= "w3-bar-item w3-left" style="font-size: 1rem;">Made by Shaam</h5>
-        <a href="#top"><h5 class="w3-bar-item" style="font-size: 1rem; margin-left: 39rem;">{% load static %} <img src="{% static 'icons/arrow_up.svg' %}" class="w3-bar-item" style="width: 6rem"/></h5></a>
+        <h5 class= "w3-bar-item" style="font-size: 1rem;">Made by Shaam</h5>
+        <a href="#top"><h5 class="w3-bar-item" style="font-size: 1rem; margin-left: 39rem;">{% load static %} <img src="{% static 'icons/arrow_up.svg' %}" alt="arrow" class="w3-bar-item" style="width: 6rem"/></h5></a>
         <a href="https://github.com/Shaam-K/NightFall"><h5 class= "w3-bar-item w3-right" style="font-size: 1rem;">Source Code available on my Github</h5></a>
-        <a href="https://github.com/Shaam-K/NightFall" class="w3-right"> {% load static %} <img src="{% static 'icons/github.svg' %}" class="w3-bar-item" style="width: 5rem; margin-left: 1rem;"/></a>
+        <a href="https://github.com/Shaam-K/NightFall" class="w3-right"> {% load static %} <img src="{% static 'icons/github.svg' %}" class="w3-bar-item" alt="github" style="width: 5rem; margin-left: 1rem;"/></a>
     </div>
 
     {% load static %}
@@ -113,7 +106,7 @@
             plugins: {
                 title: {
                     display : true,
-                    text : "Temperature Analysis",
+                    text : "Temperature Analysis (°C)",
                     font : {
                         size : 40
                     }
@@ -160,7 +153,7 @@
             plugins: {
                 title: {
                     display : true,
-                    text : "Pollution Composition",
+                    text : "Pollution Composition (μg/m3) ",
                     font : {
                         size : 40
                     }
@@ -178,7 +171,7 @@
     data : {
             labels: ['AQI'],
             datasets: [{
-                barPercentage: 0.3,
+                barPercentage: 0.2,
                 data : [
                 '{{ item.aqi }}', 
             ],
