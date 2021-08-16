@@ -1,7 +1,7 @@
 <img src="https://nightfall-app.herokuapp.com/static/icons/logo.svg" alt="logo" width="100" height="100"/> 
 
 ## TERMS : 
-* The project is being hosted by me, ask my permission before you try to host the project yourself
+* The project is being hosted by me
 * <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">Project under GNU General Public License v3.0</a>
  
  Feel free to visit:  https://nightfall-app.herokuapp.com/
@@ -59,7 +59,7 @@ Project Members:
 
     * When you create a project in django, it automatically generates a template for your project, which includes a
       local server to develop in. To create a web application you need to create an app within django. After you can
-      write the logic of the app in views.py. In my project I created a function that searches for a name in a html form. Then it gets the name of the city by the html form. I           used the GET method with form that allows me to send my city to views.py where I create a dictionary that sets parameters on what type of data should be rendered from the         API. The final data is then sent back to the html page. And hence displays the data.
+      write the logic of the app in views.py. In my project I created a function that searches for a name in a html form. Then it gets the name of the city by the html form. I           used the POST method with form that allows me to send my city to views.py where I create a dictionary that sets parameters on what type of data should be rendered from the         API. The final data is then sent back to the html page. And hence displays the data.
 
     * local server link : http://127.0.0.1:8000/
 
@@ -135,9 +135,20 @@ Before you try to download, search how to install django, also make sure to inst
 
 Thanks for downloading!
 
-# Resoures Used :
+## Things I removed / Add the Following :
 
+* I removed my api keys, as it was a security concern :
+
+  * Make your own api keys by creating an account on <a href="https://openweathermap.org/">openweather</a> and generate 2 keys
+  * Add the api key in views.py, replace {YOUR API KEY} with your api key for both weather and pollution
+
+* I removed my django key :
+ 
+  * To get your django key, make an empty folder and create an empty django project, then head to settings.py and copy the key from SECRET_KEY to my project
+
+# Resoures Used :
 * django : https://www.djangoproject.com/
+* openweather : https://openweathermap.org/api
 * chart.js : https://www.chartjs.org/docs/latest/
 * w3schools : https://www.w3schools.com/
 * Google Fonts : https://fonts.google.com/
