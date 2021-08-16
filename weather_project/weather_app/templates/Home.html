@@ -28,14 +28,17 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'icons/favicon-16x16.png' %}"> 
     {% load static %}
     <link rel="manifest" href="{% static 'icons/site.webmanifest' %}"> 
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body>
     <div class="w3-bar w3-block">
-        <div class="nav">
+        <div class="nav" style="margin-right: 1rem;">
         <a href="#" class="w3-bar-item w3-left" style="font-size: 2.5em; font-family: 'Rubik', sans-serif;">{% load static %} <img src="{% static 'icons/logo.svg' %}" alt= "logo" style="width: 5rem;"/>Nightfall</a>
-        <div class="w3-right" style="margin-top: 0.5rem;">
+        <div class="w3-right w3-medium" style="margin-top: 0.5rem;">
         <a href="#weather" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/weather.svg' %}"  alt="weather" style="width:3rem; margin-bottom: 0.5rem; padding-right: 0.3rem;">Weather</a>
-        <a href="#pollution" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em; margin-right: 2rem;">{% load static %} <img src="{% static 'icons/air.svg' %}" alt="air" style="width:3rem; margin-bottom: 0.5rem;"> Air Quality</a>
+        <a href="#pollution" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/air.svg' %}" alt="air" style="width:3rem; margin-bottom: 0.5rem;">Air Quality</a>
+        <a href="#map" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/mapbox.svg' %}" alt="map" style="width:3rem; margin-bottom: 0.5rem;">Maps</a>
         </div>
     </div>
     <div class="w3-center" style="margin-top: 20rem; margin-left: 1rem;">
@@ -63,17 +66,19 @@
     <canvas id="air_quality" style="margin-top: 20rem"></canvas>
     <h3 class="w3-center" style="font-family:  'Metrophobic'; font-size: 2rem;">( 1 = Good , 2 = Fair , 3 = Moderate , 4 = Poor , 5 = Very Poor )</h3>
     </div>
+    <div id='map' style='width: 100%; height: 600px; margin-top: 15rem;'></div>
     <div class="w3-bar w3-blue-gray" style="margin-top: 5rem;">
         <h5 class= "w3-bar-item" style="font-size: 1rem;">Made by Shaam</h5>
         <a href="#top"><h5 class="w3-bar-item" style="font-size: 1rem; margin-left: 39rem;">{% load static %} <img src="{% static 'icons/arrow_up.svg' %}" alt="arrow" class="w3-bar-item" style="width: 6rem"/></h5></a>
         <a href="https://github.com/Shaam-K/NightFall"><h5 class= "w3-bar-item w3-right" style="font-size: 1rem;">Source Code available on my Github</h5></a>
         <a href="https://github.com/Shaam-K/NightFall" class="w3-right"> {% load static %} <img src="{% static 'icons/github.svg' %}" class="w3-bar-item" alt="github" style="width: 5rem; margin-left: 1rem;"/></a>
     </div>
-
     {% load static %}
     <script>
+    // GLOBAL CHART SETTINGS
     Chart.defaults.font.size = 27;
     Chart.defaults.font.family = 'Metrophobic';
+    // TEMPERATURE
     var temp_graph =  document.getElementById('temp').getContext('2d');
     var min_max = new Chart(temp_graph, {
     type: 'bar',
@@ -117,7 +122,7 @@
             }
         },
     });
-
+    // POLLUTION
     var pollution_graph =  document.getElementById('pollution').getContext('2d');
     var components = new Chart(pollution_graph, {
     type: 'pie',
@@ -165,6 +170,7 @@
             }
         },
     });
+    // AIR QUALITY
     var aqi =  document.getElementById('air_quality').getContext('2d');
     var air = new Chart(aqi, {
     type: 'bar',
@@ -198,6 +204,14 @@
                 },
             }
         },
+    });
+    // MAPS
+    mapboxgl.accessToken = '{ YOUR TOKEN KEY }';
+    const map = new mapboxgl.Map({
+    container: 'map',
+    style: '{YOUR STYLE KEY}',
+    center: ['{{ item.longitude }}', '{{ item.latitude }}'],
+    zoom: 12
     });
     </script>
     {% endfor %}
