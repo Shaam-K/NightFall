@@ -149,6 +149,10 @@ Thanks for downloading!
 * I removed my django key :
  
   * To get your django key, make an empty folder and create an empty django project, then head to settings.py and copy the key from SECRET_KEY to my project
+  
+* I removed my mapbox key and style :
+  
+  * get your key and style from mapbox and then add them to my project
 
 # Resoures Used :
 * django : https://www.djangoproject.com/
