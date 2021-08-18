@@ -73,7 +73,7 @@ Project Members:
       tionary and then renders out the graph in a html canvas. Canvas do not behave well for responsive web design
       but it was the easiest way for me to send the data coming from django to javascript.
       
-* MAPBOX "
+* MAPBOX :
     * Mapbox is a live location platform that allows developers to add a wide range of navigation ablilites. I decided to add maps based on the place you searched, but I am not
       experienced in creating maps or tiles. So I couldnt add a weather based map to it, its something i might learn in the future.
 
