@@ -4,7 +4,7 @@
 * The project is being hosted by me
 * <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">Project under GNU General Public License v3.0</a>
  
- Feel free to visit:  https://nightfall-app.herokuapp.com/
+ Feel free to my project :  https://nightfall-app.herokuapp.com/
  ( the website is not mobile friendly )
 
 # NightFall Weather Application :
@@ -72,6 +72,10 @@ Project Members:
     * Chart.js is a javascript framework that makes displaying graphs in html easier. It takes data from django dic-
       tionary and then renders out the graph in a html canvas. Canvas do not behave well for responsive web design
       but it was the easiest way for me to send the data coming from django to javascript.
+      
+* MAPBOX "
+    * Mapbox is a live location platform that allows developers to add a wide range of navigation ablilites. I decided to add maps based on the place you searched, but I am not
+      experienced in creating maps or tiles. So I couldnt add a weather based map to it, its something i might learn in the future.
 
 ## How to download and use my project:
 
