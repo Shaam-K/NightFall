@@ -162,4 +162,5 @@ Thanks for downloading!
 * w3schools : https://www.w3schools.com/
 * Google Fonts : https://fonts.google.com/
 * Google Icons : https://fonts.google.com/icons
+* More Icons : https://iconmonstr.com/
 
