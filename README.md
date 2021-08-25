@@ -4,7 +4,7 @@
 * The project is being hosted by me
 * <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">Project under GNU General Public License v3.0</a>
  
- Feel free to my project :  https://nightfall-app.herokuapp.com/
+ Feel free to see my project :  https://nightfall-app.herokuapp.com/
  ( the website is not mobile friendly )
 
 # NightFall Weather Application :
