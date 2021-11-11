@@ -1,22 +1,22 @@
+<h1 align="center">Nightfall Weather Application</h1>
+<p align="center">
 <img src="https://raw.githubusercontent.com/Shaam-K/NightFall/0a8bf952212875ee1899ead76a55506f09191c9d/weather_project/weather_app/static/icons/logo.svg" alt="logo" width="100" height="100"/> 
+</p>
 
 ## TERMS : 
 * The project is being hosted by me
 * <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">Project under GNU General Public License v3.0</a>
  
- Feel free to see my project :  https://nightfall-app.herokuapp.com/
+* Feel free to see my project :  https://nightfall-weather.herokuapp.com/
  ( the website is not mobile friendly )
+ 
+## Minor Bug / Annoyance :
+There is a small problem regarding the navigation buttons at the top, when you click on for example "Air", look at the url. "#pollution" which is the id of the button, gets added to the url and you will see the pollution part of the page. When you try to search for another place, it will show the new place but in the pollution area again. This can be fixed with javascript, the implementation seemed a bit tricky to me. So will commit a change if I plan to do it. For now, you can solve this by clicking on the arrow on the bottom of the page which will add "#top" to the url and it should be normal.
 
-# NightFall Weather Application :
-
-Project Members:
-* Shaam
-  
 ## Introduction and About :
 
- This is my 12th Standard CSC project, where the use of python is mandatory. I made this repository to store all my source code.
+ This is my 12th Standard CSC project, where the use of python is mandatory. I made this repository to store all the source code.
  
-
 * Project : Weather App
 
     My project named **Nightfall** allows you to gather data that is being broadcasted by weather stations worldwide. All you have to do is type the name of the city in the search     bar and you will be able to see information about the weather in graphical representation.
@@ -161,6 +161,3 @@ Thanks for downloading!
 * Mapbox : https://www.mapbox.com/
 * w3schools : https://www.w3schools.com/
 * Google Fonts : https://fonts.google.com/
-* Google Icons : https://fonts.google.com/icons
-* More Icons : https://iconmonstr.com/
-
