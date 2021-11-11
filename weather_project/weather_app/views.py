@@ -2,20 +2,22 @@ from django.shortcuts import render
 import urllib.request
 import json
 # Create your views here.
-
-# USE OPENWEATHER API TO CREATE THE KEYS
-
 def weather(request):
     if request.method == 'POST':
         city = request.POST['enter']
         search_result = city.replace(" ", "%20")
   # source contain JSON data from API
         global longitude,latitude
-        source_weather = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+search_result+'&units=imperial&appid={YOUR API KEY}').read() 
+        source_weather = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+search_result+'&units=metric&appid=OPENWEATHER_WEATHER_KEY&lang=en').read() 
+
         # converting JSON data to a dictionary
         weather_load = json.loads(source_weather)
         # data for variable list_of_data
+
+        display_result = search_result.replace("%20", " ")
+
         weather_data = {
+            "display_result": str(display_result),
             "country_code": str(weather_load['sys']['country']),
             "longitude": str(weather_load['coord']['lon']),
             "latitude": str(weather_load['coord']['lat']),
@@ -28,8 +30,10 @@ def weather(request):
             "wind_speed": str(weather_load['wind']['speed']),
             "wind_deg": str(weather_load['wind']['deg']),
             "clouds": str(weather_load['clouds']['all']),
+            "icon": weather_load['weather'][0]['icon'],
+            "description": str(weather_load['weather'][0]['description'])
         }
-
+        display = weather_data['display_result']
         code = weather_data['country_code'] 
         longitude = weather_data['longitude'] 
         latitude = weather_data['latitude'] 
@@ -42,8 +46,10 @@ def weather(request):
         wind_speed = weather_data['wind_speed']
         wind_deg = weather_data['wind_deg']
         clouds = weather_data['clouds']
+        icon = weather_data['icon']
+        description = weather_data['description']
 
-        source_pollution = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/air_pollution?lat='+latitude+'&lon='+longitude+'&appid={YOUR API KEY}').read()
+        source_pollution = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/air_pollution?lat='+latitude+'&lon='+longitude+'&appid=OPENWEATHER_POLLUTION_KEY').read()
         pollution_load = json.loads(source_pollution)
         pollution_locator = pollution_load['list']
         
@@ -58,6 +64,21 @@ def weather(request):
             ammonia = i['components']['nh3']
             air_quality = i['main']['aqi']
 
+        if air_quality == 1 :
+            air_text = "Good"
+
+        elif air_quality == 2 :
+            air_text = "Fair"
+        
+        elif air_quality == 3 :
+            air_text = "Moderate"
+        
+        elif air_quality == 4 :
+            air_text = "Poor"
+        
+        else:
+            air_text = "Very Poor"
+
         pollution_data = {
             "co" : carbon_monoxide,
             "no" : nitric_oxide,
@@ -67,7 +88,8 @@ def weather(request):
             "pm2_5" : pm_two,
             "pm10" : pm_ten,
             "nh3" : ammonia,
-            "aqi" : air_quality
+            "aqi" : air_quality,
+            "air_text" : air_text
         }
 
         co = pollution_data['co']
@@ -83,6 +105,7 @@ def weather(request):
         final_data = []
         
         intermediate_data = {
+            "display" : display,
             "country_code" : code,
             "longitude" : float(longitude),
             "latitude" : float(latitude),
@@ -104,6 +127,9 @@ def weather(request):
             "pm10" : float(pm10),
             "nh3": float(nh3),
             "aqi": float(aqi),
+            "air_text" : air_text,
+            'icon' : icon,
+            'description': description
         }
 
         final_data.append(intermediate_data)

@@ -5,7 +5,38 @@ a {
     margin-top: 0.5rem;
     margin-right: 0.5rem;
 }
-
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: #344d85;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 110%;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+  }
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
 @media only screen and (max-width : 600px) {
     .nav :nth-child(2) {
         display: none;
@@ -26,5 +57,4 @@ a {
     .responsive {
         display: none;
     }
-    
 }

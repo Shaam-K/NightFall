@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shows you weather data in graphical means based on your search">
-    <title>Nightfall App</title>
+    <meta name="description" content="Shows you the weather in a analytical way based on your search">
+    <title>Weather</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400&family=Open+Sans&family=Open+Sans+Condensed:wght@300&family=Rubik:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"></script>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/widget.css' %}">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
     {% load static %}
@@ -29,56 +33,82 @@
     {% load static %}
     <link rel="manifest" href="{% static 'icons/site.webmanifest' %}"> 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.css' rel='stylesheet'/>
 </head>
 <body>
     <div class="w3-bar w3-block">
-        <div class="nav" style="margin-right: 1rem;">
-        <a href="#" class="w3-bar-item w3-left" style="font-size: 2.5em; font-family: 'Rubik', sans-serif;">{% load static %} <img src="{% static 'icons/logo.svg' %}" alt= "logo" style="width: 5rem;"/>Nightfall</a>
-        <div class="w3-right w3-medium" style="margin-top: 0.5rem;">
-        <a href="#weather" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/weather.svg' %}"  alt="weather" style="width:3rem; margin-bottom: 0.5rem; padding-right: 0.3rem;">Weather</a>
-        <a href="#pollution" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/air.svg' %}" alt="air" style="width:3rem; margin-bottom: 0.5rem;">Air Quality</a>
-        <a href="#map" class="w3-bar-item w3-hover-text-indigo" style="font-family: 'Metrophobic', sans-serif; font-size: 2em;">{% load static %} <img src="{% static 'icons/mapbox.svg' %}" alt="map" style="width:3rem; margin-bottom: 0.5rem;">Maps</a>
+        <div class="nav" style="margin-left: 2rem;">
+        <span id='top'><a class="w3-bar-item w3-left" style="font-size: 2rem; font-family: 'Asap', sans-serif;">{% load static %} <img src="{% static 'icons/logo.svg' %}" alt= "logo" style="width: 5rem;"/>Nightfall</a></span>
+        <div class="w3-right w3-flex right_nav" style="margin-top: 1.2rem; margin-right: 2rem;">
+        <a href="#weather" class="w3-bar-item" style="font-family: 'Titillium Web', sans-serif; font-weight: 300; font-size: 1.75rem; padding: 0.35rem; background-color: rgb(105, 165, 233); margin-right: 0.5rem; margin-left: 0.5rem; color:white; border-radius: 10px; padding-left: 0.5rem; padding-right: 0.5rem; ">Weather</a>
+        <a href="#pollution" class="w3-bar-item" style="font-family: 'Titillium Web', sans-serif; font-weight: 300; font-size: 1.75rem; padding: 0.35rem; padding-left: 1.5rem; padding-right: 1.5rem; background-color: rgb(105, 165, 233); margin-right: 1.5rem; margin-left: 1.5rem; color:white; border-radius: 10px;">Air</a>
+        <a href="#map" class="w3-bar-item" style="font-family: 'Titillium Web', sans-serif; font-weight: 300; font-size: 1.75rem; padding: 0.35rem; background-color: rgb(105, 165, 233); margin-right: 0.5rem; margin-left: 0.5rem; color:white; border-radius: 10px; padding-left: 0.5rem; padding-right: 0.5rem; ">Maps</a>
         </div>
     </div>
     <div class="w3-center" style="margin-top: 20rem; margin-left: 1rem;">
     <form method="POST" id="location_form">
         {% csrf_token %}
-        <input type="text" id="location" name="enter" placeholder="Enter Location">
-        <input type="submit" id="submit" value="search" style="margin-left: 0.5rem;">
+        <input type="text" id="location" name="enter" placeholder="Enter Location" style="font-family: 'Asap', sans-serif;">
+        <input type="submit" id="submit" value="search" style="margin-left: 0.5rem; font-family: Titillium Web, sans-serif;">
     </form>
     </div>
+    </div>
+<div id="weather">
     {% for item in final_data %}
-    <h1 class="w3-center" style="padding-top: 15rem; font-family: 'Metrophobic'; padding-right: 0.25rem;" id="weather">Weather Details : {{item.display}}</h1>
-    <br>
-    <ul class="w3-ul w3-center">
-        <li class="w3-padding-large w3-large">Country Code : {{ item.country_code }}</li>
-        <li class="w3-padding-large w3-large">Temperature : {{ item.temp}} °C</li>
-        <li class="w3-padding-large w3-large">Longitude : {{ item.longitude }}</li>
-        <li class="w3-padding-large w3-large">Latitude : {{ item.latitude}}</li>
-        <li class="w3-padding-large w3-large">Wind Speed : {{ item.wind_speed }} m/s</li>
-        <li class="w3-padding-large w3-large">Wind Degrees : {{ item.wind_deg}} °</li>
-        <li class="w3-padding-large w3-large">Humidity : {{ item.humidity }} %</li>
-        <li class="w3-padding-large w3-large">Clouds : {{ item.cloud}} %</li>
-      </ul>
+    <div class="position" style="margin-top: 20rem; font-family: 'Asap', sans-serif;">
+        <div class="w3-cell-row w3-center w3-text-white">
+             <div class="w3-container w3-mobile" style="background-color:#6779a1;">
+                <div class="responsive_title w3-bar" style="margin:auto;"><p style="font-size:2em; margin-left: 15rem;">Weather from {{ item.display}}</p></div>
+                <div class="tooltip" style="float:right;"><img src="http://openweathermap.org/img/wn/{{ item.icon }}.png" alt="openweather icon" style="float:right; margin-top: 2rem; margin-right: 10rem; image-rendering: optimizeQuality; width: 70px; height: 70px;">
+                    <span class="tooltiptext">{{ item.description }}</span>
+                  </div>
+                <div class="responsive_temperature"><p class="w3-xlarge">Temperature : {{item.temp}}°C</p></div>
+            </div>
+        </div>
+        <div class="w3-cell-row w3-center w3-text-white">
+            <div class="w3-container w3-cell w3-mobile w3-padding-top-18">
+                <p class="w3-xlarge" style="margin: auto; padding-top: 2rem;">Longitude : {{ item.longitude }}</p>
+            </div>
+            <div class="w3-container w3-cell w3-mobile">
+                <p class="w3-xlarge" style="margin: auto; padding-top: 2rem;">Latitude : {{ item.latitude }}</p>
+            </div>
+        </div>
+        <div class="centering_row">
+        <div class="w3-cell-row w3-center w3-text-white" style="margin-left: 2rem;">
+            <div class="w3-container w3-cell w3-mobile w3-padding-top-18">
+                <div class="responsive_wind"><p class="w3-xlarge" style="margin: auto; padding-top: 2rem;">Wind Speed : {{ item.wind_speed }}%</p></div>
+            </div>
+            <div class="w3-container w3-cell w3-mobile">
+                <div class="responsive_degree"><p class="w3-xlarge" style="margin: auto; padding-top: 2rem;">Wind Degrees : {{ item.wind_deg }}%</p></div>
+             </div>
+        </div>
+        </div>
+        <div class="w3-cell-row w3-center w3-text-white">
+            <div class="w3-container w3-cell w3-mobile w3-padding-top-18">
+                <div class="responsive_humidity"><p class="w3-xlarge" style="margin: auto; padding-top: 2rem;">Humidity : {{ item.humidity }}%</p></div>
+            </div>
+            <div class="w3-container w3-cell w3-mobile">
+                <div class="responsive_clouds"><p class="w3-xlarge" style="margin: auto; padding-top: 2rem;">Clouds : {{ item.cloud }}%</p></div>
+             </div>
+        </div>
+    </div>
+</div>
     <canvas id="temp" style="margin-top: 20rem;"></canvas>
     <canvas id="pollution" style="margin-top: 20rem;"></canvas>
-    <canvas id="air_quality" style="margin-top: 20rem"></canvas>
-    <h3 class="w3-center" style="font-family:  'Metrophobic'; font-size: 2rem;">( 1 = Good , 2 = Fair , 3 = Moderate , 4 = Poor , 5 = Very Poor )</h3>
+    <canvas id="air_quality" style="margin-top: 15rem"></canvas>
+    <h3 class="w3-center" style="font-family: 'Titillium Web', sans-serif; font-size: 2rem; margin-bottom:10rem;">( 1 = Good , 2 = Fair , 3 = Moderate , 4 = Poor , 5 = Very Poor )</h3>
     </div>
-    <div id='map' style='width: 100%; height: 600px; margin-top: 15rem;'></div>
-    <div class="w3-bar w3-blue-gray" style="margin-top: 5rem;">
-        <h5 class= "w3-bar-item" style="font-size: 1rem;">Made by Shaam</h5>
-        <a href="#top"><h5 class="w3-bar-item" style="font-size: 1rem; margin-left: 39rem;">{% load static %} <img src="{% static 'icons/arrow_up.svg' %}" alt="arrow" class="w3-bar-item" style="width: 6rem"/></h5></a>
-        <a href="https://github.com/Shaam-K/NightFall"><h5 class= "w3-bar-item w3-right" style="font-size: 1rem;">Source Code available on my Github</h5></a>
-        <a href="https://github.com/Shaam-K/NightFall" class="w3-right"> {% load static %} <img src="{% static 'icons/github.svg' %}" class="w3-bar-item" alt="github" style="width: 5rem; margin-left: 1rem;"/></a>
+    <div id='map' style='width: 80%; height: 500px; margin-top: 15rem; margin:auto;'></div>
+    <div class="w3-bar w3-blue-gray" style="margin-top: 10rem; padding-bottom: 3rem;">
+        <h5 class="w3-bar-item" style="font-size: 1.25rem; font-weight: 400; margin-left: 2rem;">Made by Shaam</h5>
+        <a href="https://github.com/Shaam-K/NightFall" class="w3-right" style="margin-right: 3rem; padding-top: 1rem;">{% load static %}<img src="{% static 'icons/github_white.svg' %}" class="w3-bar-block" alt="github" style="width: 3rem; padding-left: 0.5rem;"/></a>
+        <a href="https://github.com/Shaam-K/NightFall"><h5 class= "w3-bar-item w3-right" style="font-size: 1.2rem; font-weight: 400;">Source Code</h5></a>
+        <h1 class="w3-center" style="font-size: 1.5rem; font-weight: 400; margin-right: 3rem;"><a href="#top" style="padding-left: 4rem;">{% load static %}<img src="{% static 'icons/arrow.svg' %}" alt= "arrow to go up" style="width: 5rem;"/></a></h1>
     </div>
     {% load static %}
     <script>
-    // GLOBAL CHART SETTINGS
     Chart.defaults.font.size = 27;
-    Chart.defaults.font.family = 'Metrophobic';
-    // TEMPERATURE
+    Chart.defaults.font.family = 'Asap';
     var temp_graph =  document.getElementById('temp').getContext('2d');
     var min_max = new Chart(temp_graph, {
     type: 'bar',
@@ -122,7 +152,7 @@
             }
         },
     });
-    // POLLUTION
+
     var pollution_graph =  document.getElementById('pollution').getContext('2d');
     var components = new Chart(pollution_graph, {
     type: 'pie',
@@ -170,7 +200,6 @@
             }
         },
     });
-    // AIR QUALITY
     var aqi =  document.getElementById('air_quality').getContext('2d');
     var air = new Chart(aqi, {
     type: 'bar',
@@ -206,13 +235,14 @@
         },
     });
     // MAPS
-    mapboxgl.accessToken = '{ YOUR TOKEN KEY }';
+    mapboxgl.accessToken = 'MAPBOX_ACCESS_TOKEN';
     const map = new mapboxgl.Map({
     container: 'map',
-    style: '{YOUR STYLE KEY}',
+    style: 'MAPBOX STYLE',
     center: ['{{ item.longitude }}', '{{ item.latitude }}'],
-    zoom: 12
+    zoom: 10
     });
+    //
     </script>
     {% endfor %}
 </body>
