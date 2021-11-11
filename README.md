@@ -1,4 +1,4 @@
-<img src="https://nightfall-app.herokuapp.com/static/icons/logo.svg" alt="logo" width="100" height="100"/> 
+<img src="https://raw.githubusercontent.com/Shaam-K/NightFall/0a8bf952212875ee1899ead76a55506f09191c9d/weather_project/weather_app/static/icons/logo.svg" alt="logo" width="100" height="100"/> 
 
 ## TERMS : 
 * The project is being hosted by me
