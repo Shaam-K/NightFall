@@ -7,7 +7,7 @@
 * The project is being hosted by me
 * <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">Project under GNU General Public License v3.0</a>
  
-* Feel free to see my project :  https://nightfall-weather.herokuapp.com/
+* Feel free to see the project :  https://nightfall-weather.herokuapp.com/
  ( the website is not mobile friendly )
  
 ## Minor Bug / Annoyance :
@@ -19,7 +19,7 @@ There is a small problem regarding the navigation buttons at the top, when you c
  
 * Project : Weather App
 
-    My project named **Nightfall** allows you to gather data that is being broadcasted by weather stations worldwide. All you have to do is type the name of the city in the search     bar and you will be able to see information about the weather in graphical representation.
+    The project named **Nightfall** allows you to gather data that is being broadcasted by weather stations worldwide. All you have to do is type the name of the city in the search     bar and you will be able to see information about the weather in graphical representation.
 
 *  Languages / Frameworks Used:
 
