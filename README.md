@@ -20,20 +20,7 @@ There is a small problem regarding the navigation buttons at the top, when you c
 * Project : Weather App
 
     The project named **Nightfall** allows you to gather data that is being broadcasted by weather stations worldwide. All you have to do is type the name of the city in the search     bar and you will be able to see information about the weather in graphical representation.
-
-*  Languages / Frameworks Used:
-
-    * HTML 
-    
-    * CSS
-        * W3.CSS
-        
-    * JAVASCRIPT
-        * CHART.JS
-
-    * PYTHON
-        * DJANGO 
-                                                                                  
+                                                                 
 ## Description of each technology used:
 
 * API :
