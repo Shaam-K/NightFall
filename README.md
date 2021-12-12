@@ -46,7 +46,7 @@ There is a small problem regarding the navigation buttons at the top, when you c
 
     * When you create a project in django, it automatically generates a template for your project, which includes a
       local server to develop in. To create a web application you need to create an app within django. After you can
-      write the logic of the app in views.py. In my project I created a function that searches for a name in a html form. Then it gets the name of the city by the html form. I           used the POST method with form that allows me to send my city to views.py where I create a dictionary that sets parameters on what type of data should be rendered from the         API. The final data is then sent back to the html page. And hence displays the data.
+      write the logic of the app in views.py. In my project I created a function that searches for a name in a html form. Then it gets the name of the city by the html form. I           used the POST method with form that allows me to send the city to views.py where I create a dictionary that sets parameters on what type of data should be rendered from the         API. The final data is then sent back to the html page. And hence displays the data.
 
     * local server link : http://127.0.0.1:8000/
 
@@ -122,7 +122,7 @@ Before you try to download, search how to install django, also make sure to inst
             Starting development server at http://127.0.0.1:8000/
             Quit the server with CTRL-BREAK.
         
-* Step 7 : Now click on this link http://127.0.0.1:8000/ and you should see my website
+* Step 7 : Now click on this link http://127.0.0.1:8000/ and you should see the website
 
 Thanks for downloading!
 
@@ -135,11 +135,11 @@ Thanks for downloading!
 
 * I removed my django key :
  
-  * To get your django key, make an empty folder and create an empty django project, then head to settings.py and copy the key from SECRET_KEY to my project
+  * To get your django key, make an empty folder and create an empty django project, then head to settings.py and copy the key from SECRET_KEY to the project
   
 * I removed my mapbox key and style :
   
-  * get your key and style from mapbox and then add them to my project
+  * get your key and style from mapbox and then add them to the project
 
 # Resoures Used :
 * django : https://www.djangoproject.com/
