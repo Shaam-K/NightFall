@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # NightFall Weather Application :
 
 Project Members:
@@ -9,9 +8,7 @@ Project Members:
   
 ## Introduction and About :
 
- This is my 12th Standard CSC project, where the use of python is mandatory. I made this repository to store all my source code.
-
-=======
+This is my 12th Standard CSC project, where the use of python is mandatory. I made this repository to store all my source code.
 <h1 align="center">Nightfall Weather Application</h1>
 <p align="center">
 <img src="https://raw.githubusercontent.com/Shaam-K/NightFall/0a8bf952212875ee1899ead76a55506f09191c9d/weather_project/weather_app/static/icons/logo.svg" alt="logo" width="100" height="100"/> 
@@ -30,18 +27,16 @@ There is a small problem regarding the navigation buttons at the top, when you c
 ## Introduction and About :
 
  This is my 12th Standard CSC project, where the use of python is mandatory. I made this repository to store all the source code.
- 
->>>>>>> 936fdd608041279831691b6301c14217cd537db7
 * Project : Weather App
 
-    The project named **Nightfall** allows you to gather data that is being broadcasted by weather stations worldwide. All you have to do is type the name of the city in the search     bar and you will be able to see information about the weather in graphical representation.
+   The project named **Nightfall** allows you to gather data that is being broadcasted by weather stations worldwide. All you have to do is type the name of the city in the search bar and you will be able to see information about the weather in graphical representation.
                                                                  
 ## Description of each technology used:
 
 * API :
 
     * Also called Application Programming Interface where it acts as the intermediate between 2 applications. For 
-      example, you can say that API is the waiter at the hotel, you ask him for food which in this case is "data" and the cook which is the "system / database" makes it for you         based on what you asked.
+      example, you can say that API is the waiter at the hotel, you ask him for food which in this case is "data" and the cook which is the "system / database" makes         it for you based on what you asked.
 
     * API technology especially RESTful (REST is a method like HTTP) based ones are revolutionary as without it 
       developers would have to download extremely large files of data, and most of the data collected would get outdated quickly.
@@ -61,12 +56,9 @@ There is a small problem regarding the navigation buttons at the top, when you c
 
     * When you create a project in django, it automatically generates a template for your project, which includes a
       local server to develop in. To create a web application you need to create an app within django. After you can
-<<<<<<< HEAD
-      write the logic of the app in views.py. In my project I created a function that searches for a name in a html form. Then it gets the name of the city by the html form. I           used the GET method with form that allows me to send my city to views.py where I create a dictionary that sets parameters on what type of data should be rendered from the         API. The final data is then sent back to the html page. And hence displays the data.
-=======
-      write the logic of the app in views.py. In my project I created a function that searches for a name in a html form. Then it gets the name of the city by the html form. I           used the POST method with form that allows me to send the city to views.py where I create a dictionary that sets parameters on what type of data should be rendered from the         API. The final data is then sent back to the html page. And hence displays the data.
->>>>>>> 936fdd608041279831691b6301c14217cd537db7
-
+      write the logic of the app in views.py. In my project I created a function that searches for a name in a html form. Then it gets the name of the city by the html       form. I used the GET method with form that allows me to send my city to views.py where I create a dictionary that sets parameters on what type of data should be      rendered from the API. The final data is then sent back to the html page. And hence displays the data.
+      In my project I created a function that searches for a name in a html form. Then it gets the name of the city by the html form. I used the POST method with form        that allows me to send the city to views.py where I create a dictionary that sets parameters on what type of                     data should be rendered from         the API. The final data is then sent back to the html page. And hence displays the data.
+      
     * local server link : http://127.0.0.1:8000/
 
 * W3.CSS :
@@ -140,8 +132,6 @@ Before you try to download, search how to install django, also make sure to inst
 * Step 7 : Now click on this link http://127.0.0.1:8000/ and you should see the website
 
 Thanks for downloading!
-<<<<<<< HEAD
-=======
 
 ## Things I removed / Add the Following :
 
@@ -165,4 +155,3 @@ Thanks for downloading!
 * Mapbox : https://www.mapbox.com/
 * w3schools : https://www.w3schools.com/
 * Google Fonts : https://fonts.google.com/
->>>>>>> 936fdd608041279831691b6301c14217cd537db7
