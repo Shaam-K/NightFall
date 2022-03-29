@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # NightFall Weather Application :
 
 Project Members:
@@ -10,23 +11,31 @@ Project Members:
 
  This is my 12th Standard CSC project, where the use of python is mandatory. I made this repository to store all my source code.
 
+=======
+<h1 align="center">Nightfall Weather Application</h1>
+<p align="center">
+<img src="https://raw.githubusercontent.com/Shaam-K/NightFall/0a8bf952212875ee1899ead76a55506f09191c9d/weather_project/weather_app/static/icons/logo.svg" alt="logo" width="100" height="100"/> 
+</p>
+
+## TERMS : 
+* The project is being hosted by me
+* <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">Project under GNU General Public License v3.0</a>
+ 
+* Feel free to see the project :  https://nightfall-app.herokuapp.com/
+ ( the website is not mobile friendly )
+ 
+## Minor Bug / Annoyance :
+There is a small problem regarding the navigation buttons at the top, when you click on for example "Air", look at the url. "#pollution" which is the id of the button, gets added to the url and you will see the pollution part of the page. When you try to search for another place, it will show the new place but in the pollution area again. This can be fixed with javascript, the implementation seemed a bit tricky to me. So will commit a change if I plan to do it. For now, you can solve this by clicking on the arrow on the bottom of the page which will add "#top" to the url and it should be normal.
+
+## Introduction and About :
+
+ This is my 12th Standard CSC project, where the use of python is mandatory. I made this repository to store all the source code.
+ 
+>>>>>>> 936fdd608041279831691b6301c14217cd537db7
 * Project : Weather App
 
-    My project named **Nightfall** allows you to gather data that is being broadcasted by weather stations worldwide. All you have to do is type the name of the city in the search     bar and you will be able to see information about the weather in graphical representation.
-
-*  Languages / Frameworks Used:
-
-    * HTML 
-    
-    * CSS
-        * W3.CSS
-        
-    * JAVASCRIPT
-        * CHART.JS
-
-    * PYTHON
-        * DJANGO 
-                                                                                  
+    The project named **Nightfall** allows you to gather data that is being broadcasted by weather stations worldwide. All you have to do is type the name of the city in the search     bar and you will be able to see information about the weather in graphical representation.
+                                                                 
 ## Description of each technology used:
 
 * API :
@@ -52,7 +61,11 @@ Project Members:
 
     * When you create a project in django, it automatically generates a template for your project, which includes a
       local server to develop in. To create a web application you need to create an app within django. After you can
+<<<<<<< HEAD
       write the logic of the app in views.py. In my project I created a function that searches for a name in a html form. Then it gets the name of the city by the html form. I           used the GET method with form that allows me to send my city to views.py where I create a dictionary that sets parameters on what type of data should be rendered from the         API. The final data is then sent back to the html page. And hence displays the data.
+=======
+      write the logic of the app in views.py. In my project I created a function that searches for a name in a html form. Then it gets the name of the city by the html form. I           used the POST method with form that allows me to send the city to views.py where I create a dictionary that sets parameters on what type of data should be rendered from the         API. The final data is then sent back to the html page. And hence displays the data.
+>>>>>>> 936fdd608041279831691b6301c14217cd537db7
 
     * local server link : http://127.0.0.1:8000/
 
@@ -124,6 +137,32 @@ Before you try to download, search how to install django, also make sure to inst
             Starting development server at http://127.0.0.1:8000/
             Quit the server with CTRL-BREAK.
         
-* Step 7 : Now click on this link http://127.0.0.1:8000/ and you should see my website
+* Step 7 : Now click on this link http://127.0.0.1:8000/ and you should see the website
 
 Thanks for downloading!
+<<<<<<< HEAD
+=======
+
+## Things I removed / Add the Following :
+
+* I removed my api keys, as it was a security concern :
+
+  * Make your own api keys by creating an account on <a href="https://openweathermap.org/">openweather</a> and generate 2 keys
+  * Add the api key in views.py, replace {YOUR API KEY} with your api key for both weather and pollution
+
+* I removed my django key :
+ 
+  * To get your django key, make an empty folder and create an empty django project, then head to settings.py and copy the key from SECRET_KEY to the project
+  
+* I removed my mapbox key and style :
+  
+  * get your key and style from mapbox and then add them to the project
+
+# Resoures Used :
+* django : https://www.djangoproject.com/
+* openweather : https://openweathermap.org/api
+* chart.js : https://www.chartjs.org/docs/latest/
+* Mapbox : https://www.mapbox.com/
+* w3schools : https://www.w3schools.com/
+* Google Fonts : https://fonts.google.com/
+>>>>>>> 936fdd608041279831691b6301c14217cd537db7
