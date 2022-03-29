@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,100 +17,175 @@
     <link href="https://fonts.googleapis.com/css2?family=Asap&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"></script>
-    {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/widget.css' %}">
-    {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/charts.css' %}">
-    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/tailwind-min.css' %}">
     <link rel="apple-touch-icon" sizes="180x180" href="'{% static 'icons/apple-touch-icon.png' %}'"> 
-    {% load static %}
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'icons/favicon-32x32.png' %}"> 
-    {% load static %}
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'icons/favicon-16x16.png' %}"> 
-    {% load static %}
     <link rel="manifest" href="{% static 'icons/site.webmanifest' %}"> 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        .chartCard1 {
+            width: 100vw;
+            height: calc(100vh - 40px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .chartBox1 {
+            width: 1000px;
+            height: 500px;
+            padding: 20px;
+            border-radius: 20px;
+            border: solid 3px rgb(86, 174, 255);
+            background: white;
+        }
+        .chartCard2 {
+            width: 100vw;
+            height: calc(100vh - 40px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .chartBox2 {
+            width: 1000px;
+            height: 500px;
+            padding: 20px;
+            border-radius: 20px;
+            border: solid 3px rgb(86, 174, 255);
+            background: white;
+        }
+        .chartCard3 {
+            width: 100vw;
+            height: calc(100vh - 40px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .chartBox3 {
+            width: 1000px;
+            height: 500px;
+            padding: 20px;
+            border-radius: 20px;
+            border: solid 3px rgb(86, 174, 255);
+            background: white;
+        }
+        @media only screen and (min-width: 750px) {
+            #weather-widget2 {
+                display: none;
+            }
+        }
+        @media only screen and (max-width: 750px) {
+            #weather-widget1 {
+                display: none;
+            }
+        }
+        @media only screen and (max-width : 700px) {   
+            .chartBox1,.chartBox3 {
+                width: 90%;
+                height: 75%;
+                padding: 20px;
+            }
+            .chartBox2 {
+                width: 90%;
+                height: 75%;
+                padding: 20px;
+            }
+        }
+        @media only screen and (max-width : 600px) {   
+            .chartBox1,.chartBox2,.chartBox3 {
+                width: 90%;
+                height: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="w3-bar w3-block">
-        <div class="nav" style="margin-left: 2rem;">
-        <span id='top'><a class="w3-bar-item w3-left" style="font-size: 2rem; font-family: 'Asap', sans-serif;">{% load static %} <img src="{% static 'icons/logo.svg' %}" alt= "logo" style="width: 5rem;"/>Nightfall</a></span>
-        <div class="w3-right w3-flex right_nav" style="margin-top: 1.2rem; margin-right: 2rem;">
-        <a href="#weather" class="w3-bar-item" style="font-family: 'Titillium Web', sans-serif; font-weight: 300; font-size: 1.75rem; padding: 0.35rem; background-color: rgb(105, 165, 233); margin-right: 0.5rem; margin-left: 0.5rem; color:white; border-radius: 10px; padding-left: 0.5rem; padding-right: 0.5rem; ">Weather</a>
-        <a href="#pollution" class="w3-bar-item" style="font-family: 'Titillium Web', sans-serif; font-weight: 300; font-size: 1.75rem; padding: 0.35rem; padding-left: 1.5rem; padding-right: 1.5rem; background-color: rgb(105, 165, 233); margin-right: 1.5rem; margin-left: 1.5rem; color:white; border-radius: 10px;">Air</a>
-        <a href="#map" class="w3-bar-item" style="font-family: 'Titillium Web', sans-serif; font-weight: 300; font-size: 1.75rem; padding: 0.35rem; background-color: rgb(105, 165, 233); margin-right: 0.5rem; margin-left: 0.5rem; color:white; border-radius: 10px; padding-left: 0.5rem; padding-right: 0.5rem; ">Maps</a>
+    <div id="navbar" class="w3-bar w3-block">
+        <span id='top'><a class="w3-bar-item w3-left" style="font-size: 2rem; font-family: 'Asap', sans-serif; margin-left: 2rem;">Nightfall</a></span>
+        <div class="float-right flex gap-x-5 pt-3" style="margin-top:1.5 rem; margin-right: 2rem; font-size: 1.25rem;">
+        <a href="#weather" class="bg-gray-700 hover:bg-gray-900 text-white rounded-md p-3" style="font-family: 'Titillium Web', sans-serif;">Weather</a>
+        <a href="#pollution" class="bg-gray-700 hover:bg-gray-900 text-white rounded-md p-3 px-5" style="font-family: 'Titillium Web', sans-serif;">Air</a>
         </div>
     </div>
-    <div class="w3-center" style="margin-top: 20rem; margin-left: 1rem;">
+    <div class="w3-center" style="margin-top: 10rem; margin-left: 1rem;">
     <form method="POST" id="location_form">
         {% csrf_token %}
-        <input type="text" id="location" name="enter" placeholder="Enter Location" style="font-family: 'Asap', sans-serif;">
+        <input type="text" required id="location" name="enter" placeholder="Enter Location" style="font-family: 'Asap', sans-serif;">
         <input type="submit" id="submit" value="search" style="margin-left: 0.5rem; font-family: Titillium Web, sans-serif;">
     </form>
     </div>
-    </div>
-<div id="weather">
+    <br>
+    <br>
     {% for item in final_data %}
-    <div class="position" style="margin-top: 20rem; font-family: 'Asap', sans-serif;">
-        <div class="w3-cell-row w3-center w3-text-white">
-             <div class="w3-container w3-mobile" style="background-color:#6779a1;">
-                <div class="responsive_title w3-bar" style="margin:auto;"><p style="font-size:2em; margin-left: 15rem;">Weather from {{ item.display}}</p></div>
-                <div class="tooltip" style="float:right;"><img src="http://openweathermap.org/img/wn/{{ item.icon }}.png" alt="openweather icon" style="float:right; margin-top: 2rem; margin-right: 10rem; image-rendering: optimizeQuality; width: 70px; height: 70px;">
-                    <span class="tooltiptext">{{ item.description }}</span>
-                  </div>
-                <div class="responsive_temperature"><p class="w3-xlarge">Temperature : {{item.temp}}°C</p></div>
+    <br>
+    <br>
+    <div id="weather-widget1">
+        <div class="grid grid-cols-2 mx-auto rounded-lg" style="width: 65%; padding:25px; grid-template-columns: repeat(auto-fill, minmax(min(200px,100%), 1fr)); background-color:hsla(209, 79%, 89%, 0.35);">
+            <div class="text-center margin-right: 4rem;" style="border-right: 1px solid black;">
+                <h1 style="font-size: 1.75rem; font-family: 'Roboto', sans-serif; margin-bottom: 2.5rem;">{{ item.display }}</h1>
+                <h1 style="font-size: 2.5rem; font-family: 'Roboto', sans-serif; font-weight: 700;">{{ item.temp}}°C</h1>
             </div>
-        </div>
-        <div class="w3-cell-row w3-center w3-text-white">
-            <div class="w3-container w3-cell w3-mobile w3-padding-top-18">
-                <p class="w3-xlarge" style="margin: auto; padding-top: 2rem;">Longitude : {{ item.longitude }}</p>
+            <div style="margin-left: 3rem;">
+                <h1 style="font-size: 1.75rem; font-family: 'Roboto', sans-serif; margin-bottom: 2.5rem;">{{ item.description }}</h1>
+                <h1 style="font-weight: 700; display: flex;"><img src="{% static  'icons/wind-speed.svg' %}" alt="wind-speed"><span style="font-size: 2.5rem; margin-left: 0.5rem;">{{ item.wind_speed }}</span></h1>
             </div>
-            <div class="w3-container w3-cell w3-mobile">
-                <p class="w3-xlarge" style="margin: auto; padding-top: 2rem;">Latitude : {{ item.latitude }}</p>
+            <div style="margin-left: 10rem">
+                <h1 style="font-weight: 700; display: flex; margin-top: 2rem;"><img src="{% static  'icons/longitude.svg' %}" alt="wind-speed" style="margin-right: 1rem;"><span style="font-size: 2rem; margin-left: 0.5rem;">{{ item.longitude }}</span></h1>
+                <h1 style="font-weight: 700; display: flex;"><img src="{% static  'icons/latitude.svg' %}" alt="wind-speed"><span style="font-size: 2rem; margin-left: 0.5rem;">{{ item.latitude }}</span></h1>
             </div>
-        </div>
-        <div class="centering_row">
-        <div class="w3-cell-row w3-center w3-text-white" style="margin-left: 2rem;">
-            <div class="w3-container w3-cell w3-mobile w3-padding-top-18">
-                <div class="responsive_wind"><p class="w3-xlarge" style="margin: auto; padding-top: 2rem;">Wind Speed : {{ item.wind_speed }}%</p></div>
-            </div>
-            <div class="w3-container w3-cell w3-mobile">
-                <div class="responsive_degree"><p class="w3-xlarge" style="margin: auto; padding-top: 2rem;">Wind Degrees : {{ item.wind_deg }}%</p></div>
-             </div>
-        </div>
-        </div>
-        <div class="w3-cell-row w3-center w3-text-white">
-            <div class="w3-container w3-cell w3-mobile w3-padding-top-18">
-                <div class="responsive_humidity"><p class="w3-xlarge" style="margin: auto; padding-top: 2rem;">Humidity : {{ item.humidity }}%</p></div>
-            </div>
-            <div class="w3-container w3-cell w3-mobile">
-                <div class="responsive_clouds"><p class="w3-xlarge" style="margin: auto; padding-top: 2rem;">Clouds : {{ item.cloud }}%</p></div>
-             </div>
         </div>
     </div>
-</div>
-    <canvas id="temp" style="margin-top: 20rem;"></canvas>
-    <canvas id="pollution" style="margin-top: 20rem;"></canvas>
-    <canvas id="air_quality" style="margin-top: 15rem"></canvas>
+    <div id="weather-widget2" style="margin-bottom: 2rem;">
+        <div class="grid grid-cols-2 mx-auto rounded-xl" style="width: 90%; padding:25px; grid-template-columns: repeat(auto-fill, minmax(min(200px,100%), 1fr)); background-color:hsla(209, 79%, 89%, 0.35);">
+            <div class="text-center" style="margin-bottom: 2rem;">
+                <h1 style="font-size: 1.75rem; font-family: 'Roboto', sans-serif; margin-bottom: 2.5rem;">{{ item.display }}</h1>
+                <h1 style="font-size: 2.5rem; font-family: 'Roboto', sans-serif; font-weight: 700;">{{ item.temp}}°C</h1>
+            </div>
+            
+            <div class="flex justify-around space-x-5">
+                <h1 style="font-size: 1.50rem; font-weight: 700; font-family: 'Roboto', sans-serif;">{{ item.description }}</h1>
+                <h1 style="font-weight: 700; display: flex; font-size: 1.50rem;">Wind: {{ item.wind_speed}}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="chartCard1">
+        <div class="chartBox1">
+        <canvas id="temp"></canvas>
+        </div>
+    </div>
+    <div class="chartCard2">
+        <div class="chartBox2">
+            <canvas id="pollution"></canvas>
+        </div>
+    </div>
+    <div class="chartCard3">
+        <div class="chartBox3">
+            <canvas id="air_quality"></canvas>
+        </div>
+    </div>
+
     <h3 class="w3-center" style="font-family: 'Titillium Web', sans-serif; font-size: 2rem; margin-bottom:10rem;">( 1 = Good , 2 = Fair , 3 = Moderate , 4 = Poor , 5 = Very Poor )</h3>
     </div>
-    <div id='map' style='width: 80%; height: 500px; margin-top: 15rem; margin:auto;'></div>
-    <div class="w3-bar w3-blue-gray" style="margin-top: 10rem; padding-bottom: 3rem;">
-        <h5 class="w3-bar-item" style="font-size: 1.25rem; font-weight: 400; margin-left: 2rem;">Made by Shaam</h5>
-        <a href="https://github.com/Shaam-K/NightFall" class="w3-right" style="margin-right: 3rem; padding-top: 1rem;">{% load static %}<img src="{% static 'icons/github_white.svg' %}" class="w3-bar-block" alt="github" style="width: 3rem; padding-left: 0.5rem;"/></a>
-        <a href="https://github.com/Shaam-K/NightFall"><h5 class= "w3-bar-item w3-right" style="font-size: 1.2rem; font-weight: 400;">Source Code</h5></a>
-        <h1 class="w3-center" style="font-size: 1.5rem; font-weight: 400; margin-right: 3rem;"><a href="#top" style="padding-left: 4rem;">{% load static %}<img src="{% static 'icons/arrow.svg' %}" alt= "arrow to go up" style="width: 5rem;"/></a></h1>
+    <div id="footer" class="flex justify-around bg-gray-800 p-5 mt-24 space-x-8">
+        <h3 class="text-white" style="font-size: 1.5rem;">Made by shaam</h3>
+        <div class="space-x-3 flex">
+            <a href="https://github.com/Shaam-K/NightFall" target="blank" noreferer><svg style="fill:white;" xmlns="http://www.w3.org/2000/svg" width="54" height="34" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+            <a href="https://www.linkedin.com/feed/" target="blank" noreferer><svg style="fill:white;" xmlns="http://www.w3.org/2000/svg" width="54" height="34" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+        </div>
     </div>
-    {% load static %}
     <script>
     Chart.defaults.font.size = 27;
     Chart.defaults.font.family = 'Asap';
     var temp_graph =  document.getElementById('temp').getContext('2d');
+
     var min_max = new Chart(temp_graph, {
     type: 'bar',
     data : {
@@ -138,6 +214,7 @@
             }]
         },
         options: {
+            maintainAspectRatio: false,
             plugins: {
                 title: {
                     display : true,
@@ -157,7 +234,7 @@
     var components = new Chart(pollution_graph, {
     type: 'pie',
     data : {
-            labels: ['Carbon Monoxide (co) ', 'Nitric Oxide (no) ', 'Nitrogen Dioxide (no2) ', 'Ozone (o3) ', 'Sulphur Dioxide (so2) ', 'Fine Particulate (PM2.5) ', 'Inhalable Particulate (PM10) ', 'Ammonia (nh3) '],
+            labels: ['Carbon Monoxide', 'Nitric Oxide', 'Nitrogen Dioxide', 'Ozone', 'Sulphur Dioxide', 'PM2.5', 'PM10', 'Ammonia'],
             datasets: [{
                 data : [
                 '{{ item.co }}', 
@@ -185,6 +262,7 @@
             }]
         },
         options: {
+            maintainAspectRatio: false,
             plugins: {
                 title: {
                     display : true,
@@ -220,6 +298,7 @@
             }]
         },
         options: {
+            maintainAspectRatio: false,
             plugins: {
                 title: {
                     display : true,
@@ -234,15 +313,6 @@
             }
         },
     });
-    // MAPS
-    mapboxgl.accessToken = 'MAPBOX_ACCESS_TOKEN';
-    const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'MAPBOX STYLE',
-    center: ['{{ item.longitude }}', '{{ item.latitude }}'],
-    zoom: 10
-    });
-    //
     </script>
     {% endfor %}
 </body>

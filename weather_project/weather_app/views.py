@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import urllib.request
-import json
+import json 
 # Create your views here.
 def weather(request):
     if request.method == 'POST':
@@ -8,7 +8,7 @@ def weather(request):
         search_result = city.replace(" ", "%20")
   # source contain JSON data from API
         global longitude,latitude
-        source_weather = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+search_result+'&units=metric&appid=OPENWEATHER_WEATHER_KEY&lang=en').read() 
+        source_weather = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+search_result+'&units=metric&appid=API_KEY&lang=en').read() 
 
         # converting JSON data to a dictionary
         weather_load = json.loads(source_weather)
@@ -21,7 +21,7 @@ def weather(request):
             "country_code": str(weather_load['sys']['country']),
             "longitude": str(weather_load['coord']['lon']),
             "latitude": str(weather_load['coord']['lat']),
-            "temp": str(weather_load['main']['temp']),
+            "temp": int(weather_load['main']['temp']),
             "pressure": str(weather_load['main']['pressure']),
             "humidity": str(weather_load['main']['humidity']),
             "temp_min": str(weather_load['main']['temp_min']),
@@ -38,6 +38,7 @@ def weather(request):
         longitude = weather_data['longitude'] 
         latitude = weather_data['latitude'] 
         temp = weather_data['temp']
+
         pressure = weather_data['pressure']
         humidity = weather_data['humidity']
         temp_min = weather_data['temp_min']
@@ -49,7 +50,7 @@ def weather(request):
         icon = weather_data['icon']
         description = weather_data['description']
 
-        source_pollution = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/air_pollution?lat='+latitude+'&lon='+longitude+'&appid=OPENWEATHER_POLLUTION_KEY').read()
+        source_pollution = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/air_pollution?lat='+latitude+'&lon='+longitude+'&appid=API_KEY').read()
         pollution_load = json.loads(source_pollution)
         pollution_locator = pollution_load['list']
         
@@ -137,3 +138,7 @@ def weather(request):
     else:
         context = {}
     return render(request, "Home.html", context)
+
+
+def handler404(request, exception):
+    return render(request, '404.html', status=404)
