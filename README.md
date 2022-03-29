@@ -143,5 +143,5 @@ Thanks for downloading!
 * openweather : https://openweathermap.org/api
 * chart.js : https://www.chartjs.org/docs/latest/
 * Mapbox : https://www.mapbox.com/
-* w3schools : https://www.w3schools.com/
+* tailwind : https://tailwindcss.com/
 * Google Fonts : https://fonts.google.com/
